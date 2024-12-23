@@ -1,1 +1,49 @@
-<p>login works!</p>
+<div class="parent">
+    <div class="main-container">
+        <div class="form-wrapper">
+            <div class="form-content">
+                <!-- Login Form -->
+                <form class="form login-form active" *ngIf="switch">
+                    <h2>Welcome Back!</h2>
+                    <p>Login to your account to continue</p>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" required>
+                        <span class="input-icon">🔒</span>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <p class="switch-text">
+                        Don’t have an account? <span class="toggle-form" (click)="login()">Sign Up</span>
+                    </p>
+                </form>
+
+
+                <!-- Signup Form -->
+                <form class="form signup-form active" *ngIf="!switch">
+                    <h2>Create Account</h2>
+                    <p>Sign up to explore new opportunities</p>
+                    <div class="input-group">
+                        <input type="text" placeholder="Username" required>
+                        <span class="input-icon">👤</span>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" required>
+                        <span class="input-icon">🔒</span>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                    <p class="switch-text">
+                        Already have an account? <span class="toggle-form" (click)="login()">Login</span>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
