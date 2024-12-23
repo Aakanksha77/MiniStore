@@ -90,13 +90,31 @@ p {
     font-size: 14px;
 }
 
-.input-group .input-icon {
+/* .input-group .input-icon {
     position: absolute;
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
     font-size: 16px;
     color: #aaa;
+}
+
+.input-group .input-icon :hover{
+   
+} */
+
+.input-group {
+    position: relative;
+    margin-top: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    /* Default top position */
+    transition: top 0.3s ease;
+    /* Smooth transition for movement */
 }
 
 .btn {
@@ -131,4 +149,10 @@ p {
 
 .switch-text .toggle-form:hover {
     text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
 }
