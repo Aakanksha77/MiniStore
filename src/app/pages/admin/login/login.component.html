@@ -56,7 +56,7 @@
                             <p *ngIf="password.errors?.['minlength']"  class="error-message" >Atleast 8 letters</p>
                         </div>
                     </div>
-                    <button type="submit" class="btn" (click)="addData()">Sign Up</button>
+                    <button type="submit" class="btn" (click)="addData(form)" [disabled]="form.invalid" >Sign Up</button>
                     <p class="switch-text">
                         Already have an account? <span class="toggle-form" (click)="login()">Login</span>
                     </p>
