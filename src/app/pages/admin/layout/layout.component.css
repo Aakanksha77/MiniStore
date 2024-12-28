@@ -1,0 +1,114 @@
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.topnav li {
+    float: left;
+}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {
+    background-color: #111;
+}
+
+ul.topnav li a.active {
+    background-color: #04AA6D;
+}
+
+ul.topnav li.right {
+    float: right;
+}
+
+@media screen and (max-width: 600px) {
+
+    ul.topnav li.right,
+    ul.topnav li {
+        float: none;
+    }
+}
+
+/* Panel */
+.panel {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* padding: 10px 20px; */
+    gap: 15px;
+    /* background-color: #db2a2a; */
+    /* border: 1px solid #ccc; */
+    /* border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    margin-top: 20px;
+    width: 100%; /* Ensures full-width layout */
+    box-sizing: border-box; /* Includes padding/border in total width */
+}
+
+.left-panel {
+    flex: 1; /* Equal width distribution */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0; /* Light grey background */
+    padding: 10px;
+    border-right: 1px solid #ccc; /* Visual separation */
+}
+
+.right-panel {
+    flex: 1; /* Equal width distribution */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0; /* White background for contrast */
+    padding: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.btn-new {
+    background-color: #28a745;
+}
+
+.btn-new:hover {
+    background-color: #218838;
+}
+
+.btn-clear {
+    background-color: #dc3545;
+}
+
+.btn-clear:hover {
+    background-color: #c82333;
+}
