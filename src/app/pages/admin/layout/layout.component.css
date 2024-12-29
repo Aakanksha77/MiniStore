@@ -41,7 +41,8 @@ ul.topnav li.right {
 /* Panel */
 .panel {
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    /* justify-content: space-between; */
     /* align-items: center; */
     /* padding: 10px 20px; */
     gap: 15px;
@@ -56,9 +57,10 @@ ul.topnav li.right {
 
 .left-panel {
     flex: 1; /* Equal width distribution */
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
+
     background-color: #e0e0e0; /* Light grey background */
     padding: 10px;
     border-right: 1px solid #ccc; /* Visual separation */
@@ -111,4 +113,72 @@ button:active {
 
 .btn-clear:hover {
     background-color: #c82333;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  padding-top: 15px;
+}
+
+/* Individual Card */
+.card {
+  width: 250px; /* Make each card fill the left panel */
+  height: 100%; /* Make each card fill the left panel */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Card Content */
+.card-content {
+  padding: 15px;
+}
+
+.card-content h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.card-content p {
+  margin: 5px 0;
+  color: #777;
+}
+
+.card-content .price {
+  font-weight: bold;
+  color: #e74c3c;
+  margin: 10px 0;
+}
+
+.card-content button {
+  padding: 10px 15px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-content button:hover {
+  background-color: #27ae60;
 }

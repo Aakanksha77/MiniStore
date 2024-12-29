@@ -1,17 +1,88 @@
 <!-- <p>layout works!</p> -->
 <ul class="topnav">
-    <li><a class="active" >Home</a></li>
-    <li><a >News</a></li>
-    <li><a >Contact</a></li>
-    <li class="right"><a >About</a></li>
+  <li><a class="active">Home</a></li>
+  <li><a>News</a></li>
+  <li><a>Contact</a></li>
+  <li class="right"><a>About</a></li>
 </ul>
 
 <div class="panel">
-    <div class="left-panel">
-        <button class="btn-new">Add</button>
+  <div class="left-panel">
+    <button class="btn-new" (click)="openSidePanel()">Add</button>
+    
+    <div class="card-container">
+      <div class="card">
+        <img src="#" alt=" " class="card-image" />
+        <div class="card-content">
+          <h3> product.name </h3>
+          <p>product.description </p>
+          <p class="price">product.price | currency </p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="#" alt=" " class="card-image" />
+        <div class="card-content">
+          <h3> product.name </h3>
+          <p>product.description </p>
+          <p class="price">product.price | currency </p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="#" alt=" " class="card-image" />
+        <div class="card-content">
+          <h3> product.name </h3>
+          <p>product.description </p>
+          <p class="price">product.price | currency </p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="#" alt=" " class="card-image" />
+        <div class="card-content">
+          <h3> product.name </h3>
+          <p>product.description </p>
+          <p class="price">product.price | currency </p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="#" alt=" " class="card-image" />
+        <div class="card-content">
+          <h3> product.name </h3>
+          <p>product.description </p>
+          <p class="price">product.price | currency </p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+
     </div>
-    <div class="right-panel">
-        <button class="btn-close">Close</button>
-    </div>
+
+
+
+  </div>
+
+
+  <div class="right-panel" *ngIf="isSidePanelVisible">
+    <button class="btn-close" (click)="closeSidePanel()">Close</button>
+  </div>
 </div>
+
+
+
+<div class="card">
+
+</div>
+
+
 <router-outlet></router-outlet>
