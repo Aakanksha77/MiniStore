@@ -18,7 +18,6 @@ export class LayoutComponent {
     "description": "",
     "category": "",
     "price": 0,
-    "rating": 0,
     "brand": "",
     "sku": "",
     "weight": 0,
