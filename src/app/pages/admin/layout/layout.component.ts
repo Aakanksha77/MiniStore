@@ -10,30 +10,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
-  isSidePanelVisible: boolean = false;
 
-  productObj: any = {
-    "id": 0,
-    "title": " ",
-    "description": "",
-    "category": "",
-    "price": 0,
-    "brand": "",
-    "sku": "",
-    "weight": 0,
-    "warrantyInformation": "",
-    "returnPolicy": "",
-    "thumbnail": "",
-  }
-
-
-  openSidePanel() {
-    this.isSidePanelVisible = true
-  }
-
-  closeSidePanel() {
-    this.isSidePanelVisible = false
-  }
-
-  onSubmit(){}
 }
