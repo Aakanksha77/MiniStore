@@ -1,73 +1,26 @@
 <div class="panel">
+
   <div class="left-panel">
     <button class="btn-new" (click)="openSidePanel()">Add</button>
-    
-    <div class="card-container">
-      <div class="card">
-        <img src="#" alt=" " class="card-image" />
+
+    <div class="card-container" >
+      <div class="card" *ngFor="let element of productList">
+        <img [src]="element.thumbnail" alt=" " class="card-image" />
         <div class="card-content">
-          <h3> product.name </h3>
-          <p>product.description </p>
-          <p class="price">product.price | currency </p>
+          <h3> {{element.title}} </h3>
+          <!-- <p>{{element.description}} </p> -->
+          <p class="price">{{element.price}} | currency </p>
           <button>Add to Cart</button>
         </div>
       </div>
-
-
-      <div class="card">
-        <img src="#" alt=" " class="card-image" />
-        <div class="card-content">
-          <h3> product.name </h3>
-          <p>product.description </p>
-          <p class="price">product.price | currency </p>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
-
-      <div class="card">
-        <img src="#" alt=" " class="card-image" />
-        <div class="card-content">
-          <h3> product.name </h3>
-          <p>product.description </p>
-          <p class="price">product.price | currency </p>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
-
-      <div class="card">
-        <img src="#" alt=" " class="card-image" />
-        <div class="card-content">
-          <h3> product.name </h3>
-          <p>product.description </p>
-          <p class="price">product.price | currency </p>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
-
-      <div class="card">
-        <img src="#" alt=" " class="card-image" />
-        <div class="card-content">
-          <h3> product.name </h3>
-          <p>product.description </p>
-          <p class="price">product.price | currency </p>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
-
     </div>
-
-
 
   </div>
 
 
   <div class="right-panel" *ngIf="isSidePanelVisible">
     <button class="btn-close" (click)="closeSidePanel()">Close</button>
-    <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm">
+    <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm" >
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text" id="title" name="title" [(ngModel)]="productObj.title" required />
@@ -78,7 +31,7 @@
       </div>
       <div class="form-group">
         <label for="category">Category</label>
-        <select  id="category" name="category" [(ngModel)]="productObj.category" required>
+        <select id="category" name="category" [(ngModel)]="productObj.category" required>
           <option *ngFor="let element of categoryList" [value]="element">{{element}}</option>
         </select>
         <!-- <input type="text" id="category" name="category" [(ngModel)]="productObj.category" required /> -->
@@ -86,16 +39,11 @@
 
 
       <!-- New Image Input Field -->
-<div class="form-group">
-  <label for="thumbnail">Product Image</label>
-  <input
-    type="file"
-    id="thumbnail"
-    name="thumbnail"
-    (change)="onFileSelect($event)"
-    required
-  />
-</div>
+      <div class="form-group">
+        <label for="thumbnail">Product Image</label>
+        <input type="file" id="thumbnail" name="thumbnail" [(ngModel)]="productObj.thumbnail"  (change)="onFileSelect($event)"  required />
+        <!-- (change)="onFileSelect($event)" -->
+      </div>
 
 
 
@@ -103,7 +51,7 @@
         <label for="price">Price</label>
         <input type="number" id="price" name="price" [(ngModel)]="productObj.price" required />
       </div>
-      
+
       <div class="form-group">
         <label for="brand">Brand</label>
         <input type="text" id="brand" name="brand" [(ngModel)]="productObj.brand" required />
@@ -118,16 +66,18 @@
       </div>
       <div class="form-group">
         <label for="warrantyInformation">Warranty Information</label>
-        <input type="text" id="warrantyInformation" name="warrantyInformation" [(ngModel)]="productObj.warrantyInformation" required />
+        <input type="text" id="warrantyInformation" name="warrantyInformation"
+          [(ngModel)]="productObj.warrantyInformation" required />
       </div>
       <div class="form-group">
         <label for="returnPolicy">Return Policy</label>
         <input type="text" id="returnPolicy" name="returnPolicy" [(ngModel)]="productObj.returnPolicy" required />
       </div>
-      <div class="form-group">
+
+      <!-- <div class="form-group">
         <label for="thumbnail">Thumbnail URL</label>
         <input type="text" id="thumbnail" name="thumbnail" [(ngModel)]="productObj.thumbnail" required />
-      </div>
+      </div> -->
       <button type="submit" [disabled]="!productForm.valid" class="submit-btn">Submit</button>
     </form>
   </div>

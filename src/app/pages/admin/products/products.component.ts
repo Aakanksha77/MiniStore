@@ -89,6 +89,7 @@ export class ProductsComponent implements OnInit {
 
     // Reset the form
     form.reset();
+    this.getALLProducts()
   }
 
 
