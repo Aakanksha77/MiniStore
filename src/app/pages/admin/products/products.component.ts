@@ -10,13 +10,16 @@ import { ProductsService } from '../../../service/products.service';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
-
   isSidePanelVisible: boolean = false;
   service = inject(ProductsService)
 
+  ngOnInit() {
+    this.getALLCategory();
+    this.getALLProducts();
+  }
+
 
   productObj: any = {
-    // "id": 0,
     "title": " ",
     "description": "",
     "category": "",
@@ -38,12 +41,6 @@ export class ProductsComponent implements OnInit {
 
   productList: any
   products: any
-
-  ngOnInit() {
-    this.getALLCategory();
-    this.getALLProducts();
-  }
-
   getALLProducts() {
     this.service.getAllProducts().subscribe(result => {
       this.products = result
@@ -95,12 +92,16 @@ export class ProductsComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
+  onFileSelect(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.productObj.thumbnail = reader.result as string; // Store Base64 image data
+      };
+      reader.readAsDataURL(file);
+    }
+  }
 
   openSidePanel() {
     this.isSidePanelVisible = true

@@ -83,6 +83,22 @@
         </select>
         <!-- <input type="text" id="category" name="category" [(ngModel)]="productObj.category" required /> -->
       </div>
+
+
+      <!-- New Image Input Field -->
+<div class="form-group">
+  <label for="thumbnail">Product Image</label>
+  <input
+    type="file"
+    id="thumbnail"
+    name="thumbnail"
+    (change)="onFileSelect($event)"
+    required
+  />
+</div>
+
+
+
       <div class="form-group">
         <label for="price">Price</label>
         <input type="number" id="price" name="price" [(ngModel)]="productObj.price" required />
