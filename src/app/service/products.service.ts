@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+import { HtmlParser } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { Constant } from './constant/constant';
 
 @Injectable({
   providedIn: 'root'
@@ -7,4 +9,13 @@ import { Injectable } from '@angular/core';
 export class ProductsService {
 
   constructor(private http:HttpClient) { }
+
+  getAllProducts(){
+    return this.http.get(Constant.API_END_POINT)
+  }
+
+  getAllCategorys(){
+    return this.http.get(Constant.API_END_POINT + Constant.METHODS.GET_ALL_CATEGORY)
+  }
+
 }
