@@ -14,12 +14,15 @@ export class ProductsComponent implements OnInit {
   service = inject(ProductsService)
 
   ngOnInit() {
+
+  
     this.getALLCategory();
     this.getALLProducts();
   }
 
 
   productObj: any = {
+    "id": 0,
     "title": " ",
     "description": "",
     "category": "",
@@ -92,6 +95,48 @@ export class ProductsComponent implements OnInit {
     this.getALLProducts()
   }
 
+  onEdit(item: any){
+    this.productObj = item
+    this.openSidePanel()
+  }
+
+  onUpdate(){
+   
+      // Find the product by ID in the existing products array
+      const productIndex = this.productList.findIndex((p:any) => p.id === this.productObj.id);
+  
+      if (productIndex !== -1) {
+        // Update the product at the found index with the new data
+        this.productList[productIndex] = { ...this.productObj };
+  
+        // Save the updated products list to localStorage
+        localStorage.setItem('apiData', JSON.stringify(this.productList));
+  
+        // Optionally reset the form or show a success message
+        alert('Product updated successfully!');
+      }
+    
+  }
+
+  onDelete(productId: number): void {
+    // Ensure that this.products is an array before proceeding
+    // if (!Array.isArray(this.products)) {
+    //   console.error('Error: products is not an array!');
+    //   return;
+    // }
+  
+    // Remove the product by filtering out the product with the given ID
+    const updatedProducts = this.productList.filter((product: any) => product.id !== productId);
+  
+    // Save the updated list back to localStorage
+    localStorage.setItem('apiData', JSON.stringify(updatedProducts));
+  
+    // Update the local products array to reflect the changes
+    this.productList = updatedProducts;
+  
+    console.log('Product deleted successfully!');
+  }
+  
 
   onFileSelect(event: any) {
     const file = event.target.files[0];

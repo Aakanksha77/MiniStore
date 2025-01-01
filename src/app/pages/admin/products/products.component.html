@@ -1,29 +1,29 @@
-
 <div class="panel">
 
   <div class="left-panel">
     <button class="btn-new" (click)="openSidePanel()">Add</button>
 
-    <div class="card-container" >
+    <div class="card-container">
       <div class="card" *ngFor="let element of productList">
         <img [src]="element.thumbnail" alt=" " class="card-image" />
         <div class="card-content">
           <h3> {{element.title}} </h3>
           <!-- <p>{{element.description}} </p> -->
           <p class="price">{{element.price}} | currency </p>
-          <button>Add to Cart</button>
+          <button (click)="onEdit(element)">Edit</button>
+          <button (click)="onDelete(element.id)">Delete</button>
         </div>
       </div>
     </div>
 
   </div>
 
-  
+
 
 
   <div class="right-panel" *ngIf="isSidePanelVisible">
     <button class="btn-close" (click)="closeSidePanel()">Close</button>
-    <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm" >
+    <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm">
       <div class="form-group">
         <label for="title">Title</label>
         <input type="text" id="title" name="title" [(ngModel)]="productObj.title" required />
@@ -32,6 +32,7 @@
         <label for="description">Description</label>
         <textarea id="description" name="description" [(ngModel)]="productObj.description" required></textarea>
       </div>
+
       <div class="form-group">
         <label for="category">Category</label>
         <select id="category" name="category" [(ngModel)]="productObj.category" required>
@@ -44,7 +45,8 @@
       <!-- New Image Input Field -->
       <div class="form-group">
         <label for="thumbnail">Product Image</label>
-        <input type="file" id="thumbnail" name="thumbnail" [(ngModel)]="productObj.thumbnail"  (change)="onFileSelect($event)"  required />
+        <input type="text" id="thumbnail" name="thumbnail" [(ngModel)]="productObj.thumbnail"
+          required />
         <!-- (change)="onFileSelect($event)" -->
       </div>
 
@@ -81,7 +83,9 @@
         <label for="thumbnail">Thumbnail URL</label>
         <input type="text" id="thumbnail" name="thumbnail" [(ngModel)]="productObj.thumbnail" required />
       </div> -->
-      <button type="submit" [disabled]="!productForm.valid" class="submit-btn">Submit</button>
+      <button type="submit" [disabled]="!productForm.valid" *ngIf="productObj.id === 0" class="submit-btn">Submit</button>
+      <button type="button" [disabled]="!productForm.valid" *ngIf="productObj.id !== 0" (click)="onUpdate()" class="submit-btn" >Update</button>
+
     </form>
   </div>
 </div>
