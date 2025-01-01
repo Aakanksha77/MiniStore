@@ -126,6 +126,7 @@ export class ProductsComponent implements OnInit {
     // }
   
     // Remove the product by filtering out the product with the given ID
+    if (confirm("Are you sure you want to delete this item?")) {
     const updatedProducts = this.productList.filter((product: any) => product.id !== productId);
   
     // Save the updated list back to localStorage
@@ -135,6 +136,8 @@ export class ProductsComponent implements OnInit {
     this.productList = updatedProducts;
   
     console.log('Product deleted successfully!');
+  }
+
   }
   
 
