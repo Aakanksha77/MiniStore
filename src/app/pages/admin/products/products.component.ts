@@ -138,16 +138,16 @@ export class ProductsComponent implements OnInit {
   }
   
 
-  onFileSelect(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.productObj.thumbnail = reader.result as string; // Store Base64 image data
-      };
-      reader.readAsDataURL(file);
-    }
-  }
+  // onFileSelect(event: any) {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       this.productObj.thumbnail = reader.result as string; // Store Base64 image data
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // }
 
   openSidePanel() {
     this.isSidePanelVisible = true
