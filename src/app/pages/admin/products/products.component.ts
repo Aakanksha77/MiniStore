@@ -118,7 +118,24 @@ export class ProductsComponent implements OnInit {
     
   }
 
+  onDelete(productId: number): void {
+    // Ensure that this.products is an array before proceeding
+    // if (!Array.isArray(this.products)) {
+    //   console.error('Error: products is not an array!');
+    //   return;
+    // }
   
+    // Remove the product by filtering out the product with the given ID
+    const updatedProducts = this.productList.filter((product: any) => product.id !== productId);
+  
+    // Save the updated list back to localStorage
+    localStorage.setItem('apiData', JSON.stringify(updatedProducts));
+  
+    // Update the local products array to reflect the changes
+    this.productList = updatedProducts;
+  
+    console.log('Product deleted successfully!');
+  }
   
 
   onFileSelect(event: any) {
