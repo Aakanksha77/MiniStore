@@ -7,7 +7,7 @@
   
   /* Navbar Styles */
   .navbar {
-    background-color: #1a1a1a;
+    background-color: #e48686;
     color: #fff;
     padding: 10px 20px;
     position: sticky;
@@ -16,47 +16,21 @@
   }
   
   .navbar-container {
-    display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
   }
   
   /* Logo */
   .navbar-logo a {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #f8f8f8;
     text-decoration: none;
   }
   
-  /* Search Bar */
-  .navbar-search {
-    display: flex;
-    align-items: center;
-    background-color: #333;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  
-  .navbar-search input {
-    border: none;
-    outline: none;
-    background: none;
-    color: #fff;
-    padding: 5px 10px;
-    flex: 1;
-  }
-  
-  .navbar-search button {
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 5px;
-  }
-  
-  /* Links */
+  /* Navigation Links */
   .navbar-links {
     list-style: none;
     display: flex;
@@ -74,20 +48,25 @@
     color: #f0a500;
   }
   
-  /* Actions */
+  /* Actions (Icons) */
   .navbar-actions {
     display: flex;
     align-items: center;
     gap: 15px;
   }
   
-  .navbar-actions a {
+  .navbar-actions .icon {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     position: relative;
   }
   
+  .navbar-actions .icon:hover {
+    color: #f0a500;
+  }
+  
+  /* Cart Count Badge */
   .cart-count {
     position: absolute;
     top: -5px;
@@ -100,57 +79,14 @@
     padding: 2px 6px;
   }
   
-  /* Hamburger Menu */
-  .navbar-hamburger {
-    display: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  /* Mobile Menu */
-  .navbar-mobile {
-    display: none;
-    flex-direction: column;
-    background-color: #222;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 10px 0;
-    z-index: 999;
-  }
-  
-  .navbar-mobile.active {
-    display: flex;
-  }
-  
-  .navbar-mobile ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .navbar-mobile li a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-  }
-  
-  .navbar-mobile li a:hover {
-    background-color: #444;
-    border-radius: 5px;
-  }
-  
   /* Responsive Design */
   @media screen and (max-width: 768px) {
     .navbar-links {
       display: none;
     }
   
-    .navbar-hamburger {
-      display: block;
+    .navbar-container {
+      flex-direction: column;
     }
   }
   
