@@ -72,5 +72,27 @@ export class LandingComponent implements OnInit {
     this.router.navigateByUrl(`catergories/${categoryName}`);
   }
 
-  
+  images: string[] = [
+    'https://www.maybelline.com/-/media/project/loreal/brand-sites/mny/americas/us/lips-makeup/lip-stick/modules/title-banner/update/1h25_clp_banners_lipstickmakeup_v2.jpg?rev=204a5a1b1f4646bb9475c7b16f2a42d1&cx=0.64&cy=0.84&cw=1320&ch=250&hash=947F0EA2D2A6991CB05160C0C312930E',
+    'https://images-static.nykaa.com/uploads/5dc54ba5-f217-4879-ac79-001d29499014.jpg?tr=cm-pad_resize,w-1200',
+    'https://cdn11.bigcommerce.com/s-v9ow9qem2k/images/stencil/original/carousel/201/SKIN-CARE.jpg?c=2',
+    'https://publish-p33712-e119997.adobeaemcloud.com/content/dam/adityabirlafashionandretailprogram/homepage/fy-2024-2025/nov-24/18nov/plp/a20231118_Chillmodeactivated_Top%20Plp.jpg.transform/i1366x532/image.jpeg'
+  ];
+  currentIndex: number = 0;
+
+  prevImage(): void {
+    if (this.currentIndex === 0) {
+      this.currentIndex = this.images.length - 1; // Loop to the last image
+    } else {
+      this.currentIndex--;
+    }
+  }
+
+  nextImage(): void {
+    if (this.currentIndex === this.images.length - 1) {
+      this.currentIndex = 0; // Loop to the first image
+    } else {
+      this.currentIndex++;
+    }
+  }
 }

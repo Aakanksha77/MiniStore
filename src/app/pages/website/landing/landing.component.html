@@ -34,5 +34,18 @@
   </div>
 </nav>
 
+<div class="slider-container">
+  <!-- Image Slide -->
+  <div class="slider">
+    <img [src]="images[currentIndex]" alt="Slider Image" class="slider-image" />
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="slider-controls">
+    <button (click)="prevImage()" class="prev-btn">❮</button>
+    <button (click)="nextImage()" class="next-btn">❯</button>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
 
