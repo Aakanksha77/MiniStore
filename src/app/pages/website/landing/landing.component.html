@@ -13,7 +13,7 @@
       <div class="dropdown-container">
         <div class="dropdown-label">Categories</div>
         <ul class="dropdown-list">
-          <li *ngFor="let element of catergoriesList">{{element}}</li>
+          <li *ngFor="let element of catergoriesList" (click)="onCatergoryList()">{{element}}</li>
         </ul>
       </div>
       

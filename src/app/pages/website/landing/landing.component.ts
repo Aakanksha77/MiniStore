@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ProductsService } from '../../../service/products.service';
 
 @Component({
@@ -10,7 +10,9 @@ import { ProductsService } from '../../../service/products.service';
   styleUrl: './landing.component.css'
 })
 export class LandingComponent implements OnInit {
-  service = inject(ProductsService)
+  service = inject(ProductsService);
+  router = inject(Router);
+
   ngOnInit(): void {
     this.getproducts()
     this.getAllCategories()
@@ -66,6 +68,10 @@ export class LandingComponent implements OnInit {
       console.log(this.catergoriesList);
       
     })
+  }
+
+  onCatergoryList(){
+    this.router.navigateByUrl('catergories');
   }
 
   
