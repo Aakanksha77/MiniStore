@@ -17,11 +17,7 @@ export class LandingComponent implements OnInit {
     this.getproducts()
     this.getAllCategories()
   }
-  menuActive: boolean = false;
-
-  toggleMenu() {
-    this.menuActive = !this.menuActive;
-  }
+  
 
   products: any
   productList: any
@@ -70,8 +66,10 @@ export class LandingComponent implements OnInit {
     })
   }
 
-  onCatergoryList(){
-    this.router.navigateByUrl('catergories');
+  onCatergoryList(categoryName: string){
+    console.log(categoryName);
+    
+    this.router.navigateByUrl(`catergories/${categoryName}`);
   }
 
   
