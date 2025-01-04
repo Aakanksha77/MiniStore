@@ -128,7 +128,7 @@
 /* Image */
 .product-image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -220,6 +220,10 @@ img{
   transition: background-color 0.3s ease;
   font-weight: bold;
 } */
+
+.dropdown-label {
+  cursor: pointer;
+}
 
 .dropdown-label:hover {
   color: #0056b3;
