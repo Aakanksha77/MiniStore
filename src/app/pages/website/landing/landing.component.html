@@ -1,27 +1,54 @@
 <nav class="navbar">
-    <div class="navbar-container">
-      <!-- Logo -->
-      <div class="navbar-logo">
-        <a routerLink="/">MiniStore</a>
+  <div class="navbar-container">
+    <!-- Logo -->
+    <div class="navbar-logo">
+      <a routerLink="/">MiniStore</a>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="navbar-links">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/products">Products</a></li>
+
+      <div class="dropdown-container">
+        <div class="dropdown-label">Categories</div>
+        <ul class="dropdown-list">
+          <li *ngFor="let element of catergoriesList">{{element}}</li>
+        </ul>
       </div>
-  
-      <!-- Navigation Links -->
-      <ul class="navbar-links">
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/products">Products</a></li>
-        <li><a routerLink="/categories">Categories</a></li>
-        <li><a routerLink="/offers">Offers</a></li>
-      </ul>
-  
-      <!-- Icons for Actions -->
-      <div class="navbar-actions">
-        <a routerLink="/favorites" class="icon"><i class="fa fa-heart"></i></a>
-        <a routerLink="/cart" class="icon">
-          <i class="fa fa-shopping-cart"></i>
-          <span class="cart-count">2</span>
-        </a>
-        <a routerLink="/login" class="icon"><i class="fa fa-user"></i></a>
+      
+      
+
+      <li><a routerLink="/offers">Offers</a></li>
+    </ul>
+
+    <!-- Icons for Actions -->
+    <div class="navbar-actions">
+      <a routerLink="/favorites" class="icon"><i class="fa fa-heart"></i></a>
+      <a routerLink="/cart" class="icon">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="cart-count">2</span>
+      </a>
+      <a routerLink="/login" class="icon"><i class="fa fa-user"></i></a>
+    </div>
+  </div>
+</nav>
+
+<div class="card">
+  <div class="product-card" *ngFor="let element of productList">
+    <img [src]="element.thumbnail" alt="Product Image" class="product-image">
+    <div class="product-info">
+      <h3 class="product-title">{{element.title}}</h3>
+      <p class="product-description">Short description of the product goes here.</p>
+      <p class="product-price">${{element.price}}</p>
+      <div class="product-actions">
+        <button class="add-to-cart">
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
+        <button class="favorite">
+          <i class="fas fa-heart"></i>
+        </button>
       </div>
     </div>
-  </nav>
-  
+  </div>
+</div>
