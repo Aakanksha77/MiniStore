@@ -25,10 +25,10 @@
     <!-- Icons for Actions -->
     <div class="navbar-actions">
       <a routerLink="/favorites" class="icon"><i class="fa fa-heart"></i></a>
-      <a routerLink="/cart" class="icon">
+      <p class="icon" (click)="onCardOpen()">
         <i class="fa fa-shopping-cart"></i>
-        <span class="cart-count" (click)="updateCartCount()"></span>
-      </a>
+        <span class="cart-count">{{ cartCount }}</span>
+      </p>
       <a routerLink="/login" class="icon"><i class="fa fa-user"></i></a>
     </div>
   </div>

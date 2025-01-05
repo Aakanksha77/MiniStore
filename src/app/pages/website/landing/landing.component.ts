@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { CardService } from '../../../service/card/card.service';
 import { ProductsService } from '../../../service/products.service';
 
 @Component({
@@ -12,11 +13,16 @@ import { ProductsService } from '../../../service/products.service';
 export class LandingComponent implements OnInit {
   service = inject(ProductsService);
   router = inject(Router);
+  cartService = inject(CardService)
 
-  ngOnInit(): void {
+  cartCount: number = 6;
+
+  ngOnInit() {
     this.getproducts()
     this.getAllCategories()
     this.startAutoSlide()
+    
+    this.cartCount = this.cartService.getCartCount();
   }
   
 
@@ -105,40 +111,13 @@ export class LandingComponent implements OnInit {
   }
 
 
-  productByCategoryList: any[] = [];
-  cart: any[] = [];
-  cartCount: number = 0;
+    
+   
 
-  constructor(private route: ActivatedRoute) {}
-
+    onCardOpen(){
+      const cartItems = this.cartService.getCartItems();
+      console.log('Items in the cart:', cartItems);
   
-
-  addToCart(product: any) {
-    // Add product to the cart
-    this.cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(this.cart));
-    this.updateCartCount();
-    alert(`${product.title} has been added to the cart.`);
-    this.updateCartCount()
-  }
-
-  loadCartFromLocalStorage(): void {
-    const storedCart = localStorage.getItem('cart');
-    console.log(storedCart);
-    
-    if (storedCart) {
-      this.cart = JSON.parse(storedCart);
-      this.updateCartCount();
+  
     }
-  }
-
-  updateCartInLocalStorage(): void {
-    localStorage.setItem('cart', JSON.stringify(this.cart));
-  }
-
-  updateCartCount(): void {
-    this.cartCount = this.cart.length;
-    console.log(this.cartCount);
-    
-  }
 }
