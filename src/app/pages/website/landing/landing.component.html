@@ -16,8 +16,8 @@
           <li *ngFor="let element of catergoriesList" (click)="onCatergoryList(element)">{{element}}</li>
         </ul>
       </div>
-      
-      
+
+
 
       <li><a routerLink="/offers">Offers</a></li>
     </ul>
@@ -50,9 +50,67 @@
 
 
 
+<div class="top-items">
+  <h2>Top-List</h2>
 
-<div class="image-container">
-  <img src="https://demo-58.woovinapro.com/wp-content/uploads/2021/01/cate1.jpg" alt="Stylish Image" class="image" />
+  <div class="container">
+    <div class="image-container">
+      <img src="https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Moonphase/1.png" alt="Stylish Image" (click)="onCatergoryList('mens-watches')"
+        class="image" />
+    </div>
+    <p>Watch</p>
+  </div>
+
+  <div class="container">
+    <div class="image-container">
+      <img src="https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/1.png" alt="Stylish Image" (click)="onCatergoryList('beauty')"
+        class="image" />
+    </div>
+    <p>Men Shoes</p>
+  </div>
+
+  <div class="container">
+    <div class="image-container">
+      <img src="https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png" alt="Stylish Image" (click)="onCatergoryList('beauty')"
+        class="image" />
+    </div>
+    <p>beauty</p>
+  </div>
+
+  <div class="container">
+    <div class="image-container">
+      <img src="https://cdn.dummyjson.com/products/images/womens-bags/Prada%20Women%20Bag/1.png" alt="Stylish Image" (click)="onCatergoryList('womens-bags')"
+        class="image" />
+    </div>
+    <p>Women-bag</p>
+  </div>
+
+  <div class="container">
+    <div class="image-container">
+      <img src="https://cdn.dummyjson.com/products/images/sunglasses/Black%20Sun%20Glasses/1.png" alt="Stylish Image" (click)="onCatergoryList('sunglasses')"
+        class="image" />
+    </div>
+    <p>Sunglasses</p>
+  </div>
+
+  <div class="container">
+    <div class="image-container">
+      <img src="https://cdn.dummyjson.com/products/images/home-decoration/Family%20Tree%20Photo%20Frame/1.png" alt="Stylish Image" (click)="onCatergoryList('home-decoration')"
+        class="image" />
+    </div>
+    <p>home-decoration</p>
+  </div>
+
+  <div class="container" >
+    <div class="image-container">
+      <img src="https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/1.png" alt="Stylish Image" (click)="onCatergoryList('mobile-accessories')"
+        class="image" />
+    </div>
+    <p>mobile-accessories</p>
+  </div>
+
+
+
 </div>
 
 
@@ -60,4 +118,3 @@
 
 
 <router-outlet></router-outlet>
-

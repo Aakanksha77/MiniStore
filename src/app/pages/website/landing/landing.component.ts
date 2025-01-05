@@ -68,8 +68,7 @@ export class LandingComponent implements OnInit {
   }
 
   onCatergoryList(categoryName: string){
-    console.log(categoryName);
-    
+    console.log(categoryName);  
     this.router.navigateByUrl(`catergories/${categoryName}`);
   }
 
