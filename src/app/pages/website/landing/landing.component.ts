@@ -103,4 +103,42 @@ export class LandingComponent implements OnInit {
       this.nextImage();
     }, 3000); // Change image every 3 seconds
   }
+
+
+  productByCategoryList: any[] = [];
+  cart: any[] = [];
+  cartCount: number = 0;
+
+  constructor(private route: ActivatedRoute) {}
+
+  
+
+  addToCart(product: any) {
+    // Add product to the cart
+    this.cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+    this.updateCartCount();
+    alert(`${product.title} has been added to the cart.`);
+    this.updateCartCount()
+  }
+
+  loadCartFromLocalStorage(): void {
+    const storedCart = localStorage.getItem('cart');
+    console.log(storedCart);
+    
+    if (storedCart) {
+      this.cart = JSON.parse(storedCart);
+      this.updateCartCount();
+    }
+  }
+
+  updateCartInLocalStorage(): void {
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+
+  updateCartCount(): void {
+    this.cartCount = this.cart.length;
+    console.log(this.cartCount);
+    
+  }
 }

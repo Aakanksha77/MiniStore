@@ -27,7 +27,7 @@
       <a routerLink="/favorites" class="icon"><i class="fa fa-heart"></i></a>
       <a routerLink="/cart" class="icon">
         <i class="fa fa-shopping-cart"></i>
-        <span class="cart-count">2</span>
+        <span class="cart-count" (click)="updateCartCount()"></span>
       </a>
       <a routerLink="/login" class="icon"><i class="fa fa-user"></i></a>
     </div>
