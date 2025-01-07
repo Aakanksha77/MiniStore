@@ -1,6 +1,6 @@
 <app-customer-header></app-customer-header>
 <div class="card">
-    <div class="product-card" *ngFor="let element of productList">
+    <div class="product-card" *ngFor="let element of productList" (click)="openCard(element.id)">
         <div class="image-container">
             <img [src]="element.thumbnail" alt="Product Image" class="product-image">
         </div>

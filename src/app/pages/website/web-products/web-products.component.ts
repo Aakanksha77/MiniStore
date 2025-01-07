@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { routes } from '../../../app.routes';
 import { CartService } from '../../../service/cart/cart.service';
 import { FavoritesService } from '../../../service/favorites/favorites.service';
 import { ProductsService } from '../../../service/products.service';
@@ -66,6 +67,10 @@ export class WebProductsComponent {
 
       console.log('Final product list after syncing with API:', this.productList);
     });
+  }
+
+  openCard(id:any){
+    this.router.navigateByUrl(`productById/${id}`) 
   }
 
   // Handle adding product to the cart
