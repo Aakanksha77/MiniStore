@@ -1,0 +1,13 @@
+<div class="favorites-container">
+  <h2 class="favorites-heading">Your Favorite Items</h2>
+  <div *ngFor="let item of favItems" class="favorite-item">
+    <div class="item-image-container">
+      <img [src]="item.thumbnail" alt="{{ item.title }}" class="favorite-item-image">
+    </div>
+    <div class="item-details">
+      <p class="item-title">{{ item.title }}</p>
+      <p class="item-description">{{ item.description }}</p>
+      <button (click)="removeFromFav(item)" class="remove-btn">Remove</button>
+    </div>
+  </div>
+</div>
