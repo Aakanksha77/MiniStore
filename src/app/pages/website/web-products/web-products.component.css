@@ -1,12 +1,9 @@
 /* Card container */
 .card {
   display: flex;
-  flex-wrap: wrap;
-  /* Allows cards to wrap to the next row if they exceed the container width */
-  gap: 0px;
-  /* Space between cards */
-  justify-content: space-evenly;
-  /* Adjust spacing between cards */
+  flex-wrap: wrap; /* Allows cards to wrap to the next row if they exceed the container width */
+  gap: 0px; /* Space between cards */
+  justify-content: space-evenly; /* Adjust spacing between cards */
   padding: 20px;
   box-sizing: border-box;
 }
@@ -76,39 +73,42 @@ img {
 /* Buttons */
 .product-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 10px;
 }
 
-.add-to-cart {
-  background-color: #3498db;
-  color: #fff;
+button {
   border: none;
-  padding: 8px 15px;
   border-radius: 5px;
-  font-size: 0.9rem;
+  padding: 8px 15px;
+  font-size: 0.9em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.add-to-cart:hover {
-  background-color: #2980b9;
+button.add-to-cart {
+  background-color: #007bff; /* Blue for "Add to Cart" */
+  color: #ffffff;
 }
 
-.favorite {
-  background-color: transparent;
-  color: #e74c3c;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
+button.add-to-cart:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-.favorite:hover {
-  color: #c0392b;
+button.favorite {
+  background-color: #ffffff; /* White for "Favorite" */
+  color: #ff4757; /* Red for heart icon */
+  border: 1px solid #ff4757;
+}
+
+button.favorite:hover {
+  background-color: #ff4757;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+button i {
+  margin-right: 5px;
 }
 
 
