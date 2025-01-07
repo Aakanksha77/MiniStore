@@ -1,0 +1,78 @@
+<div class="card">
+  <div class="product-card">
+    <div class="image-container">
+      <img [src]="productByIdThumbnail[currentIndex]" alt="Product Image" class="product-image">
+      
+
+      <!-- Navigation Buttons -->
+      <div class="slider-controls">
+        <button (click)="prevImage()" class="prev-btn">❮</button>
+        <button (click)="nextImage()" class="next-btn">❯</button>
+      </div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-title">{{ productByIdTitle }}</h3>
+      <p class="product-price">Price: ${{ productByIdPrice }}</p>
+      <p class="product-description">Short description: {{productByIdDescription}} </p>
+      <div class="product-actions">
+        <button class="add-to-cart">
+          <i class="fas fa-shopping-cart"></i> Add to Cart
+        </button>
+        <button class="favorite">
+          <i class="fas fa-heart"></i> Add to Wishlist
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <!-- Tabs Section (Side-by-Side) -->
+  <div class="tabs-container">
+    <div class="tabs-header">
+      <button [class.active-tab]="activeTab === 'description'" (click)="setActiveTab('description')">
+        Description
+      </button>
+      <button [class.active-tab]="activeTab === 'reviews'" (click)="setActiveTab('reviews')">
+        Reviews
+      </button>
+    </div>
+
+    <div class="tabs-content">
+      <!-- Description Tab -->
+      <div *ngIf="activeTab === 'description'" class="tab-content">
+        <div class="description-container">
+          <h2>Description</h2>
+          <p><strong>Description:</strong> {{productByIdDescription}} </p>
+          <p><strong>Width:</strong> {{productByIdDimensionsWidth}} </p>
+          <p><strong>Height:</strong> {{productByIdDimensionsHeight}} </p>
+          <p><strong>Depth:</strong> {{productByIdDimensionsDepth}} </p>
+        </div>
+      </div>
+
+      <!-- Reviews Tab -->
+      <div *ngIf="activeTab === 'reviews'" class="tab-content">
+        <div *ngIf="productReview.length > 0; else noReviews">
+
+          <div class="reviews-section">
+            <h2 class="reviews-title">Customer Reviews</h2>
+            <div *ngFor="let review of productReview" class="review">
+              <p class="review-comment">"{{ review.comment }}"</p>
+              <div class="review-meta">
+                <span class="review-rating">Rating: {{ review.rating }} ★</span>
+                <span class="reviewer-name">By: {{ review.reviewerName }}</span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <ng-template #noReviews>
+          <p>No reviews yet. Be the first to review this product!</p>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+</div>
+

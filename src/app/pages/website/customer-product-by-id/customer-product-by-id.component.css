@@ -1,0 +1,367 @@
+/* General Product Card Styles */
+.product-card {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: rgb(255, 255, 255); /* Card background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect for the card */
+  max-width: 1000px; /* Fixed max width */
+  height: 500px; /* Fixed height */
+  margin: 20px auto; /* Centered horizontally and vertical spacing */
+  gap: 20px; /* Space between image and product info */
+}
+
+/* Image Container */
+.image-container {
+  flex: 1; /* Take up 50% of the width */
+  height: 100%; /* Maintain full height */
+  max-width: 50%; /* Ensure the image takes up only 50% of the width */
+  display: flex;
+  align-items: center; /* Center the image vertically */
+  justify-content: center; /* Center the image horizontally */
+  overflow: hidden; /* Prevent image from overflowing the container */
+  background-color:  #cac9ca;
+}
+
+.image-container img {
+  width: 100%; /* Ensure the image fills the container */
+  height: 100%; /* Maintain the image height */
+  object-fit: cover; /* Cover the area, maintaining the aspect ratio */
+  object-position: center; /* Ensure the image is centered */
+  border-radius: 8px;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* Product Info */
+.product-info {
+  flex: 1; /* Takes up the remaining 50% width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space evenly between elements */
+  padding: 10px;
+  /* gap: 10px; 10px space between details */
+}
+
+/* Product Title */
+.product-title {
+  font-size: 1.5em; /* Larger title for better visibility */
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+/* Product Price */
+.product-price {
+  font-size: 1.2em;
+  color: #007bff; /* Blue color for price */
+  margin-bottom: 1px;
+}
+
+/* Product Description */
+.product-description {
+  font-size: 1em; /* Regular size for description text */
+  /* margin-bottom: 10px; */
+  color: #555; /* Subtle color for description */
+}
+
+/* Product Actions */
+.product-actions {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+  margin-top: 50px; /* Margin above buttons */
+}
+
+/* Buttons Styling */
+.product-actions button {
+  padding: 10px 15px; /* Button padding */
+  font-size: 0.9em; /* Button text size */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart {
+  background-color: #007bff; /* Blue background for Add to Cart button */
+  color: #fff; /* White text */
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3; /* Darker blue when hovering */
+}
+
+button.favorite {
+  background-color: #ffffff; /* White for "Favorite" */
+  color: #ff4757; /* Red for heart icon */
+  border: 1px solid #ff4757;
+}
+
+button.favorite:hover {
+  background-color: #ff4757;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .product-card {
+      flex-direction: column; /* Stack image and product info vertically */
+      height: auto; /* Allow the height to adjust for smaller screens */
+      padding: 15px;
+  }
+
+  .image-container {
+      flex: 0 0 100%; /* Make image take up the full width */
+      height: auto; /* Adjust image height according to its aspect ratio */
+      margin-bottom: 15px; /* Space between image and product info */
+  }
+
+  .product-info {
+      flex: 1; /* Take full width */
+      padding: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Controls */
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+  
+.prev-btn, .next-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 50%;
+}
+  
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Tabs Container */
+.tabs-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Tabs Header (Side-by-Side) */
+  .tabs-header {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 2px solid #eeeeee;
+    margin-bottom: 20px;
+  }
+  
+  .tabs-header button {
+    flex: 1;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .tabs-header button:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .active-tab {
+    background-color: #007bff;
+    color: rgb(19, 18, 18);
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .tabs-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  /* Tab Content Area */
+  .tab-content {
+    flex: 1;
+    font-size: 1em;
+    color: #333333;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+
+/* Description Section Styling */
+.description-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description-container h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.description-container p {
+  font-size: 1.1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.description-container p strong {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Reviews Section Styling */
+.reviews-section {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  max-width: 800px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviews-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.review {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-comment {
+  font-size: 1.2em;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.review-meta {
+  font-size: 0.9em;
+  color: #777;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-rating {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+.reviewer-name {
+  font-style: italic;
+  color: #333;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .description-container {
+    padding: 15px;
+  }
+
+  .description-container h2 {
+    font-size: 1.5em;
+  }
+
+  .description-container p {
+    font-size: 1em;
+  }
+
+  .reviews-section {
+    padding: 15px;
+  }
+
+  .reviews-title {
+    font-size: 1.5em;
+  }
+
+  .review {
+    padding: 10px;
+  }
+}
