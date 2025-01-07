@@ -1,120 +1,46 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <!-- Logo -->
+    <!-- Logo on the Left -->
     <div class="navbar-logo">
-      <a routerLink="/">MiniStore</a>
+      <p (click)="onLogoOpen()">MiniStore</p>
     </div>
 
-    <!-- Navigation Links -->
-    <ul class="navbar-links">
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/products">Products</a></li>
+    <!-- Centered Navigation Links and Search Bar -->
+    <div class="navbar-center">
+      <ul class="navbar-links">
+        <li><p (click)="onLogoOpen()">Home</p></li>
+        <li><p (click)="onLogoOpen()">Products</p></li>
 
-      <div class="dropdown-container">
-        <div class="dropdown-label">Categories</div>
-        <ul class="dropdown-list">
-          <li *ngFor="let element of catergoriesList" (click)="onCatergoryList(element)">{{element}}</li>
-        </ul>
+        <div class="dropdown-container">
+          <div class="dropdown-label">Categories</div>
+          <ul class="dropdown-list">
+            <li *ngFor="let element of catergoriesList" (click)="onCatergoryList(element)">{{element}}</li>
+          </ul>
+        </div>
+
+        <li><p (click)="onLogoOpen()">Offers</p></li>
+      </ul>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" placeholder="Search products..." />
+        <button><i class="fa fa-search"></i></button>
       </div>
+    </div>
 
-
-
-      <li><a routerLink="/offers">Offers</a></li>
-    </ul>
-
-    <!-- Icons for Actions -->
+    <!-- Icons for Actions on the Right -->
     <div class="navbar-actions">
-      <a routerLink="/favorites" class="icon"><i class="fa fa-heart"></i></a>
+      <p class="icon" (click)="onfavOpen()">
+        <i class="fa fa-heart"></i>
+        <span class="cart-count">{{ favService.getfavCount() }}</span>
+      </p>
       <p class="icon" (click)="onCardOpen()">
         <i class="fa fa-shopping-cart"></i>
-        <span class="cart-count">{{ cartCount }}</span>
+        <span class="cart-count">{{ cartService.getCartCount() }}</span>
       </p>
       <a routerLink="/login" class="icon"><i class="fa fa-user"></i></a>
     </div>
   </div>
 </nav>
-
-<div class="slider-container">
-  <!-- Image Slide -->
-  <div class="slider">
-    <img [src]="images[currentIndex]" alt="Slider Image" class="slider-image" />
-  </div>
-
-  <!-- Navigation Buttons -->
-  <div class="slider-controls">
-    <button (click)="prevImage()" class="prev-btn">❮</button>
-    <button (click)="nextImage()" class="next-btn">❯</button>
-  </div>
-</div>
-
-
-
-
-<div class="top-items">
-  <h2>Top-List</h2>
-
-  <div class="container">
-    <div class="image-container">
-      <img src="https://cdn.dummyjson.com/products/images/mens-watches/Rolex%20Cellini%20Moonphase/1.png" alt="Stylish Image" (click)="onCatergoryList('mens-watches')"
-        class="image" />
-    </div>
-    <p>Watch</p>
-  </div>
-
-  <div class="container">
-    <div class="image-container">
-      <img src="https://cdn.dummyjson.com/products/images/mens-shoes/Sports%20Sneakers%20Off%20White%20&%20Red/1.png" alt="Stylish Image" (click)="onCatergoryList('beauty')"
-        class="image" />
-    </div>
-    <p>Men Shoes</p>
-  </div>
-
-  <div class="container">
-    <div class="image-container">
-      <img src="https://cdn.dummyjson.com/products/images/beauty/Red%20Lipstick/1.png" alt="Stylish Image" (click)="onCatergoryList('beauty')"
-        class="image" />
-    </div>
-    <p>beauty</p>
-  </div>
-
-  <div class="container">
-    <div class="image-container">
-      <img src="https://cdn.dummyjson.com/products/images/womens-bags/Prada%20Women%20Bag/1.png" alt="Stylish Image" (click)="onCatergoryList('womens-bags')"
-        class="image" />
-    </div>
-    <p>Women-bag</p>
-  </div>
-
-  <div class="container">
-    <div class="image-container">
-      <img src="https://cdn.dummyjson.com/products/images/sunglasses/Black%20Sun%20Glasses/1.png" alt="Stylish Image" (click)="onCatergoryList('sunglasses')"
-        class="image" />
-    </div>
-    <p>Sunglasses</p>
-  </div>
-
-  <div class="container">
-    <div class="image-container">
-      <img src="https://cdn.dummyjson.com/products/images/home-decoration/Family%20Tree%20Photo%20Frame/1.png" alt="Stylish Image" (click)="onCatergoryList('home-decoration')"
-        class="image" />
-    </div>
-    <p>home-decoration</p>
-  </div>
-
-  <div class="container" >
-    <div class="image-container">
-      <img src="https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/1.png" alt="Stylish Image" (click)="onCatergoryList('mobile-accessories')"
-        class="image" />
-    </div>
-    <p>mobile-accessories</p>
-  </div>
-
-
-
-</div>
-
-
-<!-- beauty,  -->
-
 
 <router-outlet></router-outlet>
