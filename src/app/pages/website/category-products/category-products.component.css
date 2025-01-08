@@ -47,7 +47,8 @@
   
   /* Product info */
   .product-info {
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
   }
   
   .product-title {
@@ -72,6 +73,8 @@
   
   /* Buttons */
   .product-actions {
+    margin-left: 15px;
+    margin-bottom: 15px;
     display: flex;
     gap: 10px;
   }
@@ -112,3 +115,184 @@
   }
   
 
+
+
+
+
+
+
+
+  /* Cart Popup Container */
+.cart-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: popupPulseCart 1.5s ease-out forwards;
+}
+
+/* Popup Pulse Effect */
+@keyframes popupPulseCart {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+#cart {
+  font-size: 30px;
+  animation: pulseShake 1.5s ease-in-out infinite;/* Apply the pulse and shake animation */
+}
+
+/* Pulse and Shake Animation */
+@keyframes pulseShake {
+  0% {
+    transform: scale(1) rotate(0deg);
+    /* Initial position */
+  }
+
+  25% {
+    transform: scale(1.1) rotate(5deg);
+    /* Pulse and rotate slightly */
+  }
+
+  50% {
+    transform: scale(1) rotate(-5deg);
+    /* Pulse back and rotate in the opposite direction */
+  }
+
+  75% {
+    transform: scale(1.1) rotate(5deg);
+    /* Pulse and rotate slightly again */
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    /* Return to original position */
+  }
+}
+
+
+/* Heart Popup Container */
+.heart-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f06292, #ec407a);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: popupPulse 1.5s ease-out forwards;
+}
+
+/* Heart Icon */
+.heart-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  animation: heartBeat 1.2s ease-out forwards;
+}
+
+/* Heart Shape */
+.heart-shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: white;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transform-origin: center;
+  animation: heartGrow 0.8s ease 0.5s forwards;
+}
+
+.heart-shape::before,
+.heart-shape::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+}
+
+.heart-shape::before {
+  top: -50%;
+  left: 0;
+}
+
+.heart-shape::after {
+  top: 0;
+  left: -50%;
+}
+
+/* Popup Pulse Effect */
+@keyframes popupPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Heart Shape Growing Animation */
+@keyframes heartGrow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(45deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+/* Heart Beat Effect */
+@keyframes heartBeat {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
