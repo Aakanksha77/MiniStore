@@ -1,8 +1,8 @@
 <div class="card">
   <div class="product-card">
+
     <div class="image-container">
       <img [src]="productByIdThumbnail[currentIndex]" alt="Product Image" class="product-image">
-
 
       <!-- Navigation Buttons -->
       <div class="slider-controls">
@@ -10,24 +10,26 @@
         <button (click)="nextImage()" class="next-btn">❯</button>
       </div>
     </div>
+
     <div class="product-info">
       <h3 class="product-title">{{ productByIdTitle }}</h3>
       <p class="product-price">Price: ${{ productByIdPrice }}</p>
       <p class="product-description">Short description: {{productByIdDescription}} </p>
       <div class="product-actions">
-        <button class="add-to-cart">
+        <button class="add-to-cart" (click)="addToCart(productById)">
           <i class="fas fa-shopping-cart"></i> Add to Cart
         </button>
-        <button class="favorite">
-          <i class="fas fa-heart"></i> Add to Wishlist
+        <button class="favorite" (click)="addTofav(productById)">
+          <i class="fas fa-heart"></i>
         </button>
       </div>
     </div>
+    
   </div>
 </div>
 
+<!-- Tabs Section (Side-by-Side) -->
 <div>
-  <!-- Tabs Section (Side-by-Side) -->
   <div class="tabs-container">
     <div class="tabs-header">
       <button [class.active-tab]="activeTab === 'description'" (click)="setActiveTab('description')">
@@ -42,7 +44,13 @@
       <!-- Description Tab -->
       <div *ngIf="activeTab === 'description'" class="tab-content">
         <div class="description-container">
-          <h2>Description</h2>
+          <div class="title-container">
+            <span class="icon">
+              <i class="fas fa-box-open"></i>
+            </span>
+            <h2>{{ productByIdTitle }}</h2>
+          </div>
+
           <p><strong>Description:</strong> {{productByIdDescription}} </p>
           <p><strong>Width:</strong> {{productByIdDimensionsWidth}} </p>
           <p><strong>Height:</strong> {{productByIdDimensionsHeight}} </p>
@@ -81,23 +89,42 @@
 
   <div class="card1">
     <div class="product-card1" *ngFor="let element of productByCategortList">
-      <div class="image-container1">
-        <img [src]="element.thumbnail" alt="Product Image" class="product-image1">
-      </div>
-      <div class="product-info1">
-        <h3 class="product-title1">{{element.title}}</h3>
-        <p class="product-description1">Short description of the product goes here.</p>
-        <p class="product-price1">${{element.price}}</p>
+      <div (click)="openCard(element.id)">
+
+        <div class="image-container1">
+          <img [src]="element.thumbnail" alt="Product Image" class="product-image1">
+        </div>
+
+        <div class="product-info1">
+          <h3 class="product-title1">{{element.title}}</h3>
+          <p class="product-description1">Short description of the product goes here.</p>
+          <p class="product-price1">${{element.price}}</p>
+        </div>
+
         <div class="product-actions1">
-          <button class="add-to-cart1">
+          <button class="add-to-cart1" (click)="addToCart(element)">
             <i class="fas fa-shopping-cart"></i> Add to Cart
           </button>
-          <button class="favorite1">
+          <button class="favorite1" (click)="addTofav(element)">
             <i class="fas fa-heart"></i>
           </button>
         </div>
+
       </div>
     </div>
   </div>
+</div>
 
+<!-- Add to Cart -->
+<div class="cart-popup" *ngIf="showPopup">
+  <div class="add-to-cart">
+    <span class="fas fa-shopping-cart" id="cart"></span>
+  </div>
+</div>
+
+<!-- Add to Fav -->
+<div class="heart-popup" *ngIf="showfavPopup">
+  <div class="heart-icon">
+    <span class="heart-shape"></span>
+  </div>
 </div>

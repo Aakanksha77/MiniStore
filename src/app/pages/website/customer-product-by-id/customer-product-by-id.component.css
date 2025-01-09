@@ -1,36 +1,42 @@
 /* General Product Card Styles */
 .product-card {
   display: flex;
-  align-items: flex-start; /* Align items to the top */
+  align-items: flex-start;
+  /* Align items to the top */
   justify-content: space-between;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
-  background-color: rgb(255, 255, 255); /* Card background color */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect for the card */
-  max-width: 1000px; /* Fixed max width */
-  height: 500px; /* Fixed height */
-  margin: 20px auto; /* Centered horizontally and vertical spacing */
-  gap: 20px; /* Space between image and product info */
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  height: 500px;
+  margin: 20px auto;
+  gap: 20px;
 }
 
 /* Image Container */
 .image-container {
-  flex: 1; /* Take up 50% of the width */
-  height: 100%; /* Maintain full height */
-  max-width: 50%; /* Ensure the image takes up only 50% of the width */
+  flex: 1;
+  /* Take up 50% of the width */
+  height: 100%;
+  max-width: 50%;
   display: flex;
-  align-items: center; /* Center the image vertically */
-  justify-content: center; /* Center the image horizontally */
-  overflow: hidden; /* Prevent image from overflowing the container */
-  background-color:  #cac9ca;
+  align-items: center;
+  /* Center the image vertically */
+  justify-content: center;
+  /* Center the image horizontally */
+  overflow: hidden;
+  background-color: #cac9ca;
 }
 
 .image-container img {
-  width: 100%; /* Ensure the image fills the container */
-  height: 100%; /* Maintain the image height */
-  object-fit: cover; /* Cover the area, maintaining the aspect ratio */
-  object-position: center; /* Ensure the image is centered */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Cover the area, maintaining the aspect ratio */
+  object-position: center;
+  /* Ensure the image is centered */
   border-radius: 8px;
   background-color: transparent;
   overflow: hidden;
@@ -38,17 +44,18 @@
 
 /* Product Info */
 .product-info {
-  flex: 1; /* Takes up the remaining 50% width */
+  flex: 1;
+  /* Takes up the remaining 50% width */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute space evenly between elements */
+  justify-content: space-between;
+  /* Distribute space evenly between elements */
   padding: 10px;
-  /* gap: 10px; 10px space between details */
 }
 
 /* Product Title */
 .product-title {
-  font-size: 1.5em; /* Larger title for better visibility */
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 1px;
 }
@@ -56,46 +63,49 @@
 /* Product Price */
 .product-price {
   font-size: 1.2em;
-  color: #007bff; /* Blue color for price */
+  color: #007bff;
   margin-bottom: 1px;
 }
 
 /* Product Description */
 .product-description {
-  font-size: 1em; /* Regular size for description text */
-  /* margin-bottom: 10px; */
-  color: #555; /* Subtle color for description */
+  font-size: 1em;
+  /* Regular size for description text */
+  color: #555;
 }
 
 /* Product Actions */
 .product-actions {
   display: flex;
-  gap: 10px; /* Space between buttons */
-  margin-top: 50px; /* Margin above buttons */
+  gap: 10px;
+  margin-top: 50px;
 }
 
 /* Buttons Styling */
 .product-actions button {
-  padding: 10px 15px; /* Button padding */
-  font-size: 0.9em; /* Button text size */
-  border: none;
+  padding: 10px 15px;
+  font-size: 0.9em;
+  /* Button text size */
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.add-to-cart {
-  background-color: #007bff; /* Blue background for Add to Cart button */
-  color: #fff; /* White text */
+button.add-to-cart {
+  background-color: #007bff;
+  color: #ffffff;
 }
 
 .add-to-cart:hover {
-  background-color: #0056b3; /* Darker blue when hovering */
+  background-color: #0056b3;
+  /* Darker blue when hovering */
 }
 
 button.favorite {
-  background-color: #ffffff; /* White for "Favorite" */
-  color: #ff4757; /* Red for heart icon */
+  background-color: #ffffff;
+  /* White for "Favorite" */
+  color: #ff4757;
+  /* Red for heart icon */
   border: 1px solid #ff4757;
 }
 
@@ -104,54 +114,29 @@ button.favorite:hover {
   color: #ffffff;
   transform: scale(1.05);
 }
+
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
   .product-card {
-      flex-direction: column; /* Stack image and product info vertically */
-      height: auto; /* Allow the height to adjust for smaller screens */
-      padding: 15px;
+    flex-direction: column;
+    /* Stack image and product info vertically */
+    height: auto;
+    padding: 15px;
   }
 
   .image-container {
-      flex: 0 0 100%; /* Make image take up the full width */
-      height: auto; /* Adjust image height according to its aspect ratio */
-      margin-bottom: 15px; /* Space between image and product info */
+    flex: 0 0 100%;
+    /* Make image take up the full width */
+    height: auto;
+    margin-bottom: 15px;
   }
 
   .product-info {
-      flex: 1; /* Take full width */
-      padding: 10px;
+    flex: 1;
+    /* Take full width */
+    padding: 10px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Controls */
@@ -163,8 +148,9 @@ button.favorite:hover {
   justify-content: space-between;
   transform: translateY(-50%);
 }
-  
-.prev-btn, .next-btn {
+
+.prev-btn,
+.next-btn {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -173,81 +159,95 @@ button.favorite:hover {
   font-size: 20px;
   border-radius: 50%;
 }
-  
-.prev-btn:hover, .next-btn:hover {
+
+.prev-btn:hover,
+.next-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-  
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  /* Tabs Container */
+/* Tabs Container */
 .tabs-container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  /* Tabs Header (Side-by-Side) */
-  .tabs-header {
-    display: flex;
-    justify-content: flex-start;
-    border-bottom: 2px solid #eeeeee;
-    margin-bottom: 20px;
-  }
-  
-  .tabs-header button {
-    flex: 1;
-    padding: 10px 20px;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .tabs-header button:hover {
-    background-color: #f8f9fa;
-  }
-  
-  .active-tab {
-    background-color: #007bff;
-    color: rgb(19, 18, 18);
-    border-radius: 5px 5px 0 0;
-  }
-  
-  .tabs-content {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-  
-  /* Tab Content Area */
-  .tab-content {
-    flex: 1;
-    font-size: 1em;
-    color: #333333;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
+/* Tabs Header (Side-by-Side) */
+.tabs-header {
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 2px solid #eeeeee;
+  margin-bottom: 20px;
+}
+
+.tabs-header button {
+  flex: 1;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tabs-header button:hover {
+  background-color: #f8f9fa;
+}
+
+.active-tab {
+  background-color: #007bff;
+  color: rgb(19, 18, 18);
+  border-radius: 5px 5px 0 0;
+}
+
+.tabs-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* Tab Content Area */
+.tab-content {
+  flex: 1;
+  font-size: 1em;
+  color: #333333;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabs title Section (Side-by-Side)  */
+.title-container {
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.title-container .icon {
+  font-size: 24px;
+  color: #f39c12;
+}
+
+.title-container h2 {
+  font-size: 28px;
+  color: #333;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: bold;
+}
+
+.fa-box-open:hover {
+  transform: scale(1.2);
+  color: #f39c12;
+  /* Change to dark gray on hover */
+}
 
 
 
@@ -368,42 +368,15 @@ button.favorite:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Card container */
 .card1 {
   display: flex;
-  flex-wrap: wrap; /* Allows cards to wrap to the next row if they exceed the container width */
-  gap: 0px; /* Space between cards */
-  justify-content: space-evenly; /* Adjust spacing between cards */
+  flex-wrap: wrap;
+  /* Allows cards to wrap to the next row if they exceed the container width */
+  gap: 0px;
+  /* Space between cards */
+  justify-content: space-evenly;
+  /* Adjust spacing between cards */
   padding: 20px;
   box-sizing: border-box;
 }
@@ -436,7 +409,8 @@ button.favorite:hover {
   width: 90%;
   height: 250px;
   object-fit: cover;
-  background: transparent;/* Ensure the background is removed */
+  background: transparent;
+  /* Ensure the background is removed */
 }
 
 img {
@@ -447,7 +421,8 @@ img {
 
 /* Product info */
 .product-info1 {
-  padding: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
 .product-title1 {
@@ -472,6 +447,8 @@ img {
 
 /* Buttons */
 .product-actions1 {
+  margin-left: 15px;
+  margin-bottom: 15px;
   display: flex;
   gap: 10px;
 }
@@ -486,7 +463,8 @@ button {
 }
 
 button.add-to-cart1 {
-  background-color: #007bff; /* Blue for "Add to Cart" */
+  background-color: #007bff;
+  /* Blue for "Add to Cart" */
   color: #ffffff;
 }
 
@@ -496,8 +474,10 @@ button.add-to-cart1:hover {
 }
 
 button.favorite1 {
-  background-color: #ffffff; /* White for "Favorite" */
-  color: #ff4757; /* Red for heart icon */
+  background-color: #ffffff;
+  /* White for "Favorite" */
+  color: #ff4757;
+  /* Red for heart icon */
   border: 1px solid #ff4757;
 }
 
@@ -512,3 +492,178 @@ button i {
 }
 
 
+
+/* Cart Popup Container */
+.cart-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: popupPulseCart 1.5s ease-out forwards;
+}
+
+/* Popup Pulse Effect */
+@keyframes popupPulseCart {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+#cart {
+  font-size: 30px;
+  animation: pulseShake 1.5s ease-in-out infinite;/* Apply the pulse and shake animation */
+}
+
+/* Pulse and Shake Animation */
+@keyframes pulseShake {
+  0% {
+    transform: scale(1) rotate(0deg);
+    /* Initial position */
+  }
+
+  25% {
+    transform: scale(1.1) rotate(5deg);
+    /* Pulse and rotate slightly */
+  }
+
+  50% {
+    transform: scale(1) rotate(-5deg);
+    /* Pulse back and rotate in the opposite direction */
+  }
+
+  75% {
+    transform: scale(1.1) rotate(5deg);
+    /* Pulse and rotate slightly again */
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    /* Return to original position */
+  }
+}
+
+
+/* Heart Popup Container */
+.heart-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f06292, #ec407a);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: popupPulse 1.5s ease-out forwards;
+}
+
+/* Heart Icon */
+.heart-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  animation: heartBeat 1.2s ease-out forwards;
+}
+
+/* Heart Shape */
+.heart-shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: white;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transform-origin: center;
+  animation: heartGrow 0.8s ease 0.5s forwards;
+}
+
+.heart-shape::before,
+.heart-shape::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+}
+
+.heart-shape::before {
+  top: -50%;
+  left: 0;
+}
+
+.heart-shape::after {
+  top: 0;
+  left: -50%;
+}
+
+/* Popup Pulse Effect */
+@keyframes popupPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Heart Shape Growing Animation */
+@keyframes heartGrow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5) rotate(45deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+/* Heart Beat Effect */
+@keyframes heartBeat {
+  0% {
+    transform: scale(0.8);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
