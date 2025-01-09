@@ -4,10 +4,11 @@ import { Router, RouterModule } from '@angular/router';
 import { CartService } from '../../../service/cart/cart.service';
 import { FavoritesService } from '../../../service/favorites/favorites.service';
 import { ProductsService } from '../../../service/products.service';
+import { CustomerFooterComponent } from '../customer-footer/customer-footer.component';
 
 @Component({
   selector: 'app-landing',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule,CustomerFooterComponent],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'
 })
@@ -22,11 +23,24 @@ export class LandingComponent implements OnInit {
   productList: any
   catergoriesList: any
 
+  cartItems: any[] = [];
+  searchResults: any[] = []; // To hold filtered products
+  existingData: any[] = []; // To hold the products loaded from localStorage
+  searchProductListResult: any
+  searchProductList: any
+
   ngOnInit() {
     this.getAllCategories()
-    
+   
     this.cartCount = this.cartService.getCartCount();
+  
+    const storedData = localStorage.getItem('apiData');
+    if (storedData) {
+      this.existingData = JSON.parse(storedData);
+    }
+
   }
+  
   
   onLogoOpen(){
     this.router.navigateByUrl('pro')
@@ -47,10 +61,46 @@ export class LandingComponent implements OnInit {
 
   onCardOpen(){
     this.router.navigateByUrl('cart')
-    const cartItems = this.cartService.getCartItems();
+    
   }
 
   onfavOpen(){
     this.router.navigateByUrl('fav')
   }    
+
+  
+  onSearch(query: string){
+    if (!query.trim()) {
+      this.searchResults = []; // Clear results if query is empty
+      return;
+    }
+  
+    this.searchResults = this.existingData.filter((product: any) => {   
+      // Check if `product.name` exists before calling `toLowerCase`
+      return product.title && product.title.toLowerCase().includes(query.toLowerCase()) || product.description && product.description.toLowerCase().includes(query.toLowerCase());
+    });
+
+    if (this.searchResults.length > 0) {
+      const productId = this.searchResults[0].id; // Get the ID of the first matching product
+      this.openCard(productId); // Pass the ID to openCard
+    }
+  
+    console.log('Search Results:', this.searchResults);
+  }
+  
+  openCard(id:any){
+    this.router.navigateByUrl(`productById/${id}`) 
+  }
+
+  onUser(){
+    this.router.navigateByUrl('user')
+  }
+
+  onAboutUs(){
+    this.router.navigateByUrl('About')
+  }
+
+  onContact(){
+    this.router.navigateByUrl('Contact')
+  }
 }

@@ -9,7 +9,7 @@
     <div class="navbar-center">
       <ul class="navbar-links">
         <li><p (click)="onLogoOpen()">Home</p></li>
-        <li><p (click)="onLogoOpen()">Products</p></li>
+        
 
         <div class="dropdown-container">
           <div class="dropdown-label">Categories</div>
@@ -17,14 +17,15 @@
             <li *ngFor="let element of catergoriesList" (click)="onCatergoryList(element)">{{element}}</li>
           </ul>
         </div>
+        <li><p (click)="onAboutUs()">About Us</p></li>
 
-        <li><p (click)="onLogoOpen()">Offers</p></li>
+        <li><p (click)="onContact()">Contact</p></li>
       </ul>
 
       <!-- Search Bar -->
       <div class="search-bar">
-        <input type="text" placeholder="Search products..." />
-        <button><i class="fa fa-search"></i></button>
+        <input type="text" placeholder="Search products..." (keydown.enter)="onSearch(searchInput.value)" #searchInput/>
+        <button (click)="onSearch(searchInput.value)"><i class="fa fa-search"></i></button>
       </div>
     </div>
 
@@ -38,9 +39,15 @@
         <i class="fa fa-shopping-cart"></i>
         <span class="cart-count">{{ cartService.getCartCount() }}</span>
       </p>
-      <a routerLink="/login" class="icon"><i class="fa fa-user"></i></a>
+
+      <p class="icon" (click)="onUser()">
+        <i class="fa fa-user"></i>  
+      </p>
+
     </div>
   </div>
 </nav>
 
+
 <router-outlet></router-outlet>
+<app-customer-footer></app-customer-footer>
