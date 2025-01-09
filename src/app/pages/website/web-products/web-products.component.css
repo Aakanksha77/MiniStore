@@ -47,7 +47,8 @@ img {
 
 /* Product info */
 .product-info {
-  padding: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
 .product-title {
@@ -72,6 +73,8 @@ img {
 
 /* Buttons */
 .product-actions {
+  margin-left: 15px;
+  margin-bottom: 15px;
   display: flex;
   gap: 10px;
 }
