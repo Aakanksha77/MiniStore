@@ -32,7 +32,10 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     this.getAllCategories()
    
-    this.cartCount = this.cartService.getCartCount();
+    // this.cartCount = this.cartService.getCartCount();
+    this.cartService.cart$.subscribe((cart) => {
+      this.cartCount = cart.length; // Update cart count dynamically
+    });
   
     const storedData = localStorage.getItem('apiData');
     if (storedData) {
