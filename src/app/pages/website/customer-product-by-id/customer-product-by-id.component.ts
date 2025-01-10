@@ -13,12 +13,6 @@ import { CategoryProductsComponent } from '../category-products/category-product
   styleUrl: './customer-product-by-id.component.css'
 })
 export class CustomerProductByIdComponent {
-  service = inject(ProductsService);
-  cartService = inject(CartService)
-  favService = inject(FavoritesService)
-  activeRouter = inject(ActivatedRoute);
-  router = inject(Router);
-
   paramValue: any
   productById: any;
   productByIdTitle: any
@@ -31,6 +25,9 @@ export class CustomerProductByIdComponent {
   productReview: any
   productByIdRating: any
 
+  productByCategortResult: any
+  productByCategortList: any
+
   currentIndex: number = 0;
   autoSlideInterval: any;
 
@@ -38,16 +35,25 @@ export class CustomerProductByIdComponent {
   cartCount1: number = 0;
   showPopup: boolean = false;
   showfavPopup: boolean = false;
+  
+  service = inject(ProductsService);
+  cartService = inject(CartService)
+  favService = inject(FavoritesService)
+  activeRouter = inject(ActivatedRoute);
+  router = inject(Router);
+
+
 
   ngOnInit() {
     this.activeRouter.paramMap.subscribe(params => {
       this.paramValue = params.get('params'); // 'param' should match the route parameter name in your route configuration
-
-      this.getProductByIdResult(this.paramValue); // Fetch data for the category
+      console.log(this.paramValue);
+     
+        this.getProductByIdResult(this.paramValue); // Fetch data for the category
     })
-    this.startAutoSlide()
+    this.startAutoSlide() 
   }
-
+  
   getProductByIdResult(id: any) {
     this.service.getProductsById(id).subscribe((result) => {
       this.productById = result;
@@ -71,7 +77,8 @@ export class CustomerProductByIdComponent {
     this.activeTab = tabName;
   }
 
-  prevImage() {
+
+  prevImage(){
     if (this.currentIndex === 0) {
       this.currentIndex = this.productByIdThumbnail.length - 1; // Loop to the last image
     } else {
@@ -79,7 +86,7 @@ export class CustomerProductByIdComponent {
     }
   }
 
-  nextImage() {
+  nextImage(){
     if (this.currentIndex === this.productByIdThumbnail.length - 1) {
       this.currentIndex = 0; // Loop to the first image
     } else {
@@ -87,29 +94,27 @@ export class CustomerProductByIdComponent {
     }
   }
 
-  startAutoSlide() {
+  startAutoSlide(){
     this.autoSlideInterval = setInterval(() => {
       this.nextImage();
     }, 3000); // Change image every 3 seconds
   }
 
-  productByCategortResult: any
-  productByCategortList: any
-  getCategory(id: any) {
+  getCategory(id: any){
     console.log(id);
-    this.service.getProductByCategorys(id).subscribe((result) => {
+    this.service.getProductByCategorys(id).subscribe((result)=>{
       this.productByCategortResult = result
       this.productByCategortList = this.productByCategortResult.products
-      console.log(result);
+      console.log(result); 
     })
   }
 
-  openCard(id: any) {
-    this.router.navigateByUrl(`productById/${id}`)
+  openCard(id:any){
+    this.router.navigateByUrl(`productById/${id}`) 
   }
 
   // Handle adding product to the cart
-  addToCart(product: any) {
+  addToCart(product: any){
     const result = this.cartService.addToCart(product);
 
     if (result.success) {
@@ -125,7 +130,8 @@ export class CustomerProductByIdComponent {
       alert(result.message); // Replace with toast notification for better UX
     }
   }
-
+ 
+  // Handle adding product to the Favorite
   addTofav(product: any) {
     const result = this.favService.addTofav(product);
     if (result.success) {
