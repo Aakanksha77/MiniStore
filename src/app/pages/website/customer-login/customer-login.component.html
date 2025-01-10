@@ -1,0 +1,81 @@
+<div class="parent">
+    <div class="main-container">
+        <div class="form-wrapper">
+            <div class="form-content">
+                <!-- Login Form -->
+                <form class="form login-form active" *ngIf="switch" #loginForm="ngForm">
+                    <h2>Welcome Back!</h2>
+                    <p>Login to your account to continue</p>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email" [(ngModel)]="formData.email" name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                        <span class="input-icon">📧</span>
+
+                        <!-- Add validation messages -->
+                        <div *ngIf="email.invalid && email.touched" class="error-message">
+                            <p *ngIf="email.errors?.['required']"  class="error-message">Email is required.</p>
+                            <p *ngIf="email.errors?.['pattern']"  class="error-message">Invalid email format. Example: user&#64;example.com</p>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" [(ngModel)]="formData.password" name="password" #password="ngModel" minlength="8"
+                        required>
+                    <span class="input-icon">🔒</span>
+
+                    <!-- Add validation messages -->
+                    <div *ngIf="password.invalid && email.touched" class="error-message">
+                        <p *ngIf="password.errors?.['required']"  class="error-message">Password is required.</p>
+                        <p *ngIf="password.errors?.['minlength']"  class="error-message" >Atleast 8 letters</p>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn" (click)="getdata(loginForm)" [disabled]="loginForm.invalid" >Login</button>
+                    <p class="switch-text">
+                        Don’t have an account? <span class="toggle-form" (click)="islogin()">Sign Up</span>
+                    </p>
+                </form>
+
+
+                <!-- Signup Form -->
+                <form class="form signup-form active" *ngIf="!switch" #form="ngForm">
+                    <h2>Create Account</h2>
+                    <p>Sign up to explore new opportunities</p>
+                    <div class="input-group">
+                        <input type="text" placeholder="Username" [(ngModel)]="formData.userName" name="username"
+                         #username="ngModel" required>
+                        <span class="input-icon">👤</span>
+
+                        <!-- Add validation messages -->
+                        <div *ngIf="username.invalid && username.touched" class="error-message">
+                            <p *ngIf="username.errors?.['required']"  class="error-message">Username is required.</p>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Email" [(ngModel)]="formData.email" name="email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                        <span class="input-icon">📧</span>
+
+                        <!-- Add validation messages -->
+                        <div *ngIf="email.invalid && email.touched" class="error-message">
+                            <p *ngIf="email.errors?.['required']"  class="error-message">Email is required.</p>
+                            <p *ngIf="email.errors?.['pattern']"  class="error-message">Invalid email format. Example: user&#64;example.com</p>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" placeholder="Password" [(ngModel)]="formData.password" name="password" #password="ngModel" minlength="8"
+                            required>
+                        <span class="input-icon">🔒</span>
+
+                        <!-- Add validation messages -->
+                        <div *ngIf="password.invalid && email.touched" class="error-message">
+                            <p *ngIf="password.errors?.['required']"  class="error-message">Password is required.</p>
+                            <p *ngIf="password.errors?.['minlength']"  class="error-message" >Atleast 8 letters</p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn" (click)="addData(form)" [disabled]="form.invalid" >Sign Up</button>
+                    <p class="switch-text">
+                        Already have an account? <span class="toggle-form" (click)="islogin()">Login</span>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
