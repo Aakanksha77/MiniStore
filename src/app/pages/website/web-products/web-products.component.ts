@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { routes } from '../../../app.routes';
+import { Router } from '@angular/router';
 import { CartService } from '../../../service/cart/cart.service';
 import { FavoritesService } from '../../../service/favorites/favorites.service';
 import { ProductsService } from '../../../service/products.service';
