@@ -1,0 +1,73 @@
+<!-- 
+    This is a working contact form. To receive email, 
+    Replace YOUR_ACCESS_KEY_HERE with your actual Access Key.
+
+    Create Access Key here 👉 https://web3forms.com/
+ -->
+
+ <section class="contact-section">
+    <div class="contact-intro">
+      <h2 class="contact-title">Get in Touch</h2>
+      <p class="contact-description">
+        Fill out the form below and we'll get back to you as soon as possible.
+      </p>
+    </div>
+    <!-- "7f55719d-93a7-4b3d-85aa-dccfa349f0a0" -->
+  
+    <form class="contact-form" action="https://api.web3forms.com/submit" #ContactForm="ngForm" method="POST">
+      <!-- Web3Forms API Key -->
+      <input type="hidden" name="access_key" value=7f55719d-93a7-4b3d-85aa-dccfa349f0a0 />
+      <!-- Subject of the email -->
+      <input type="hidden" name="subject" value="New Contact Form Submission from Web3Forms" />
+      <!-- Sender name for the email -->
+      <input type="hidden" name="from_name" value="My Website" />
+    
+      <!-- Name Input -->
+      <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" name="name" class="form-input" placeholder="Your name" type="text"
+          [(ngModel)]="formData.userName" #username="ngModel" required />
+        <div *ngIf="username.invalid && username.touched" class="error-message">
+          <p *ngIf="username.errors?.['required']" class="error-message">Username is required.</p>
+        </div>
+      </div>
+    
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" name="email" class="form-input" placeholder="Your email" type="email" [(ngModel)]="formData.email"
+          #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+        <div *ngIf="email.invalid && email.touched" class="error-message">
+          <p *ngIf="email.errors?.['required']">Email is required.</p>
+          <p *ngIf="email.errors?.['pattern']">Invalid email format. Example: user&#64;example.com</p>
+        </div>
+      </div>
+    
+      <!-- Phone Input -->
+      <div class="form-group">
+        <label for="phone" class="form-label">Phone</label>
+        <input id="phone" name="phone" class="form-input" placeholder="+1 (234) 56789" type="number" [(ngModel)]="formData.phone"
+          #phone="ngModel" pattern="^[0-9]{10}$" minlength="8" required />
+        <div *ngIf="phone.invalid && phone.touched" class="error-message">
+          <p *ngIf="phone.errors?.['required']">Phone is required.</p>
+          <p *ngIf="phone.errors?.['pattern']">Phone number must be exactly 10 digits long.</p>
+        </div>
+      </div>
+    
+      <!-- Message Input -->
+      <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-textarea" id="message" name="message" placeholder="Your message"
+          [(ngModel)]="formData.message" pattern="^[a-z0-9 ,]{5,50}$" #message="ngModel" required></textarea>
+        <div *ngIf="message.invalid && message.touched" class="error-message">
+          <p *ngIf="message.errors?.['required']">Message is required.</p>
+          <p *ngIf="message.errors?.['pattern']">Message must be atleast 5 , 10 words.</p>
+        </div>
+      </div>
+    
+      <!-- Submit Button -->
+      <button class="form-submit" type="submit" [disabled]="ContactForm.invalid" (click)="submitForm(ContactForm)">Send Message</button>
+    </form>
+    
+  
+  </section>
