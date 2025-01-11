@@ -531,7 +531,8 @@ button i {
 
 #cart {
   font-size: 30px;
-  animation: pulseShake 1.5s ease-in-out infinite;/* Apply the pulse and shake animation */
+  animation: pulseShake 1.5s ease-in-out infinite;
+  /* Apply the pulse and shake animation */
 }
 
 /* Pulse and Shake Animation */

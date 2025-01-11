@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../../../service/cart/cart.service';
 import { FavoritesService } from '../../../service/favorites/favorites.service';
 import { ProductsService } from '../../../service/products.service';
-import { CategoryProductsComponent } from '../category-products/category-products.component';
 
 @Component({
   selector: 'app-customer-product-by-id',
@@ -42,8 +41,7 @@ export class CustomerProductByIdComponent {
   activeRouter = inject(ActivatedRoute);
   router = inject(Router);
 
-
-
+  
   ngOnInit() {
     this.activeRouter.paramMap.subscribe(params => {
       this.paramValue = params.get('params'); // 'param' should match the route parameter name in your route configuration
