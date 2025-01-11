@@ -10,10 +10,8 @@ import { Router } from '@angular/router';
   styleUrl: './customer-login.component.css'
 })
 export class CustomerLoginComponent {
-
   switch = true;
   router = inject(Router);
-
 
   islogin() {
     this.switch = !this.switch
@@ -46,28 +44,28 @@ export class CustomerLoginComponent {
     // this.router.navigateByUrl('/products')
   }
 
-  getdata(form: any){
-     // Step 1: Retrieve user data from localStorage
-     const storedUsers = JSON.parse(localStorage.getItem('CustomerData') || '[]');
+  getdata(form: any) {
+    // Step 1: Retrieve user data from localStorage
+    const storedUsers = JSON.parse(localStorage.getItem('CustomerData') || '[]');
 
-     // Step 2: Check if the entered credentials match any user
-     const user = storedUsers.find(
-       (u: any) =>
-         u.email === this.formData.email &&
-         u.password === this.formData.password
-     );
- 
-     if (user) {
-       // Step 3: Successful login
+    // Step 2: Check if the entered credentials match any user
+    const user = storedUsers.find(
+      (u: any) =>
+        u.email === this.formData.email &&
+        u.password === this.formData.password
+    );
+
+    if (user) {
+      // Step 3: Successful login
       //  this.router.navigateByUrl('products')
-       alert('Login successful!');
-     } else {
-       // Step 4: Invalid credentials
-       alert('Invalid email or password.');
-     }
- 
-     // Optional: Reset form
-     form.reset();
+      alert('Login successful!');
+    } else {
+      // Step 4: Invalid credentials
+      alert('Invalid email or password.');
+    }
+
+    // Optional: Reset form
+    form.reset();
   }
 
 }
