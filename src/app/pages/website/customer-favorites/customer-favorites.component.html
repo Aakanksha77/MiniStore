@@ -8,6 +8,18 @@
       <p class="item-title">{{ item.title }}</p>
       <p class="item-description">{{ item.description }}</p>
       <button (click)="removeFromFav(item)" class="remove-btn">Remove</button>
+      <button class="add-to-cart" (click)="addToCart(item)">
+        <i class="fas fa-shopping-cart"></i> Add to Cart
+    </button>
     </div>
+  </div>
+</div>
+
+
+
+<!-- Add to Cart -->
+<div class="cart-popup" *ngIf="showPopup">
+  <div class="add-to-cart">
+      <span class="fas fa-shopping-cart" id="cart"></span>
   </div>
 </div>

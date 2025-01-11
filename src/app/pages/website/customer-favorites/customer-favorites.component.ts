@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CartService } from '../../../service/cart/cart.service';
 import { FavoritesService } from '../../../service/favorites/favorites.service';
 
 @Component({
@@ -10,44 +11,55 @@ import { FavoritesService } from '../../../service/favorites/favorites.service';
   styleUrl: './customer-favorites.component.css'
 })
 export class CustomerFavoritesComponent implements OnInit {
-  ngOnInit(): void {
-    this.loadCartItems()
-    this.favItems = JSON.parse(localStorage.getItem('fav') || '[]');
-  }
-  favItems: any[] = [];
-  favCount: any;
+  cartService = inject(CartService)
   favService = inject(FavoritesService)
+  
+  favItems: any[] = [];
+  favCount: number = 0;
+  
+  cartCount:any;
+  showPopup: boolean = false;
 
-  loadCartItems(): void {
-    const favData = localStorage.getItem('fav');
-    this.favItems = favData ? JSON.parse(favData) : [];
+  ngOnInit(): void {
+    this.loadFavorites();
+
+    // Subscribe to changes in the favorites list for real-time updates
+    this.favService.fav$.subscribe((fav) => {
+      this.favItems = fav;
+      this.updateFavCount();
+    });
   }
 
-  removeFromFav1(item: any): void {
-    this.favItems = this.favItems.filter((cartItem) => cartItem.id !== item.id);
-    localStorage.setItem('fav', JSON.stringify(this.favItems));
-    // this.calculateCart();
-  }
-  removeFromFav(item: any): void {
-    // Filter out the item from the favorites array
-    this.favItems = this.favItems.filter((favItem) => favItem.id !== item.id);
-  
-    // Save the updated list to localStorage
-    localStorage.setItem('fav', JSON.stringify(this.favItems));
-  
-    // Optionally, you can update the favorites count or any other data if required
+  loadFavorites(): void {
+    this.favItems = this.favService.getfavItems();
     this.updateFavCount();
-  
+  }
+
+  removeFromFav(item: any): void {
+    this.favService.removeFromfav(item.id); // Use service to remove item
     console.log('Item removed from favorites:', item);
   }
-  
-  // Method to update the count of favorite items (if you are showing it somewhere)
+
   updateFavCount(): void {
-    const favCount = this.favItems.length; // Calculate the current number of items in favorites
-    console.log('Total Favorites:', favCount);
-  
-    // Optionally, update a variable or UI component to reflect the updated count
-    this.favCount = favCount;
+    this.favCount = this.favItems.length; // Update the count dynamically
+    console.log('Total Favorites:', this.favCount);
+  }
+
+  addToCart(product: any){
+    const result = this.cartService.addToCart(product);
+
+    if (result.success) {
+      this.cartCount = this.cartService.getCartCount();
+      this.showPopup = true;
+
+      // Hide popup after 3 seconds
+      setTimeout(() => {
+        this.showPopup = false;
+      }, 3000);
+    }
+    else {
+      alert(result.message); // Replace with toast notification for better UX
+    }
   }
   
 }

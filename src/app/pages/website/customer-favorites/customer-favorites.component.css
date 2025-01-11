@@ -1,80 +1,173 @@
 .favorites-container {
-    width: 80%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 50px auto;
+  margin-bottom: 285px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-heading {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.favorite-item {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.favorite-item:hover {
+  transform: scale(1.05);
+}
+
+.item-image-container {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.favorite-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 5px 0;
+  color: #333;
+}
+
+.item-description {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.remove-btn {
+  padding: 8px 15px;
+  background-color: #ff4f5a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #e93b44;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button.add-to-cart {
+  margin-left: 10px;
+  background-color: #007bff;
+  /* Blue for "Add to Cart" */
+  color: #ffffff;
+}
+
+button.add-to-cart:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+
+
+/* Cart Popup Container */
+.cart-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: popupPulseCart 1.5s ease-out forwards;
+}
+
+/* Popup Pulse Effect */
+@keyframes popupPulseCart {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
   }
-  
-  .favorites-heading {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
   }
-  
-  .favorite-item {
-    display: flex;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 15px;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
-  
-  .favorite-item:hover {
-    transform: scale(1.05);
+}
+
+#cart {
+  font-size: 30px;
+  animation: pulseShake 1.5s ease-in-out infinite;
+  /* Apply the pulse and shake animation */
+}
+
+/* Pulse and Shake Animation */
+@keyframes pulseShake {
+  0% {
+    transform: scale(1) rotate(0deg);
+    /* Initial position */
   }
-  
-  .item-image-container {
-    width: 120px;
-    height: 120px;
-    margin-right: 20px;
-    border-radius: 8px;
-    overflow: hidden;
+
+  25% {
+    transform: scale(1.1) rotate(5deg);
+    /* Pulse and rotate slightly */
   }
-  
-  .favorite-item-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+
+  50% {
+    transform: scale(1) rotate(-5deg);
+    /* Pulse back and rotate in the opposite direction */
   }
-  
-  .item-details {
-    flex: 1;
+
+  75% {
+    transform: scale(1.1) rotate(5deg);
+    /* Pulse and rotate slightly again */
   }
-  
-  .item-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 5px 0;
-    color: #333;
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    /* Return to original position */
   }
-  
-  .item-description {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 10px;
-  }
-  
-  .remove-btn {
-    padding: 8px 15px;
-    background-color: #ff4f5a;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .remove-btn:hover {
-    background-color: #e93b44;
-  }
-  
+}
