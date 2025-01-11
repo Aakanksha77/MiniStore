@@ -7,13 +7,13 @@ import { Router } from '@angular/router';
   templateUrl: './customer-header.component.html',
   styleUrl: './customer-header.component.css'
 })
-export class CustomerHeaderComponent implements OnInit{
+export class CustomerHeaderComponent implements OnInit {
   router = inject(Router);
   currentIndex: number = 0;
   autoSlideInterval: any
 
-  ngOnInit(){
-   this.startAutoSlide()
+  ngOnInit() {
+    this.startAutoSlide()
   }
 
   images: string[] = [
@@ -24,8 +24,8 @@ export class CustomerHeaderComponent implements OnInit{
     'https://publish-p33712-e119997.adobeaemcloud.com/content/dam/adityabirlafashionandretailprogram/homepage/fy-2024-2025/nov-24/18nov/plp/a20231118_Chillmodeactivated_Top%20Plp.jpg.transform/i1366x532/image.jpeg'
   ];
 
-  
-  prevImage(){
+
+  prevImage() {
     if (this.currentIndex === 0) {
       this.currentIndex = this.images.length - 1; // Loop to the last image
     } else {
@@ -33,7 +33,7 @@ export class CustomerHeaderComponent implements OnInit{
     }
   }
 
-  nextImage(){
+  nextImage() {
     if (this.currentIndex === this.images.length - 1) {
       this.currentIndex = 0; // Loop to the first image
     } else {
@@ -41,14 +41,14 @@ export class CustomerHeaderComponent implements OnInit{
     }
   }
 
-  startAutoSlide(){
+  startAutoSlide() {
     this.autoSlideInterval = setInterval(() => {
       this.nextImage();
     }, 3000); // Change image every 3 seconds
   }
 
-  onCatergoryList(categoryName: string){
-    console.log(categoryName);  
+  onCatergoryList(categoryName: string) {
+    console.log(categoryName);
     this.router.navigateByUrl(`catergories/${categoryName}`);
   }
 }

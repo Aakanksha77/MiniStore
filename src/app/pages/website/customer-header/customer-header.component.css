@@ -3,25 +3,26 @@
   position: relative;
   width: 100%;
   height: 20%;
-  max-width: 1900px; /* Adjust the width as needed */
+  max-width: 1900px;
+  /* Adjust the width as needed */
   margin-top: 10px;
   overflow: hidden;
   object-fit: cover;
 }
-  
+
 /* Image Style */
 .slider {
   width: 100%;
   height: auto;
 }
-  
+
 .slider-image {
   width: 100%;
   height: 300px;
   border-radius: 10px;
   transition: transform 0.5s ease-in-out;
 }
-  
+
 /* Controls */
 .slider-controls {
   position: absolute;
@@ -31,8 +32,9 @@
   justify-content: space-between;
   transform: translateY(-50%);
 }
-  
-.prev-btn, .next-btn {
+
+.prev-btn,
+.next-btn {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -41,11 +43,12 @@
   font-size: 20px;
   border-radius: 50%;
 }
-  
-.prev-btn:hover, .next-btn:hover {
+
+.prev-btn:hover,
+.next-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-  
+
 /* Title(New Arrivals) */
 .title-container {
   display: flex;
@@ -69,7 +72,7 @@
 
 
 /*Items in Circle  */
-.top-items{
+.top-items {
   display: flex;
   gap: 20px;
   /* margin-left: 20px; */
@@ -79,15 +82,17 @@
 .container h3 {
   text-align: center;
 }
-  
+
 .image-container {
   position: relative;
-  width: 200px; /* Adjust the size as needed */
+  width: 200px;
+  /* Adjust the size as needed */
   height: 200px;
-  background-color: #cac9ca; 
-  border-radius: 50%; 
+  background-color: #cac9ca;
+  border-radius: 50%;
   border: #ffe6f2 solid 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.1);
+  /* 3D shadow effect */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,18 +100,20 @@
   transform: translateY(-5px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-  
+
 .image-container:hover {
-  transform: translateY(-15px); /* Slight lift effect on hover */
+  transform: translateY(-15px);
+  /* Slight lift effect on hover */
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3), 0 12px 12px rgba(0, 0, 0, 0.15);
 }
-  
+
 .image {
-  width: 200px; /* Adjust to fit within the container */
+  width: 200px;
+  /* Adjust to fit within the container */
   height: 200px;
   padding: 5px;
   object-fit: cover;
-  border-radius: 50%; 
-  background: transparent; /* Ensure the background is removed */
+  border-radius: 50%;
+  background: transparent;
+  /* Ensure the background is removed */
 }
-  
