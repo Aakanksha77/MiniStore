@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CartService } from '../../../service/cart/cart.service';
 
 @Component({
@@ -10,65 +10,58 @@ import { CartService } from '../../../service/cart/cart.service';
   styleUrl: './customer-cart.component.css'
 })
 export class CustomerCartComponent implements OnInit {
-  cartItems: any[] = [];
-  totalItems: number = 0;
-  totalPrice: number = 0;
+  router = inject(Router);
   cartService = inject(CartService)
+  
+  cartItems: any[] = [];
+ 
+  Price = 0;
+  totalItems = 0;
+  totalPrice = 0;
 
-  ngOnInit() {
-    this.loadCartItems();
-    this.cartItems.forEach(item => {
-      if (!item.quantity) {
-        item.quantity = 1; // Default quantity to 1 if not set
-      }
+  ngOnInit(): void {
+    this.cartService.cart$.subscribe((cart) => {
+      this.cartItems = cart; // Update cart items dynamically
+      this.calculateCart(); // Recalculate totals
     });
+    this.cartItems.forEach(item => {
+          if (!item.quantity) {
+            item.quantity = 1; // Default quantity to 1 if not set
+          }
+        });
     this.calculateCart();
-  }
-
-  loadCartItems(): void {
-    const cartData = localStorage.getItem('cart');
-    this.cartItems = cartData ? JSON.parse(cartData) : [];
   }
 
   calculateCart() {
     this.totalItems = this.cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    this.totalPrice = this.cartItems.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    this.Price = this.cartItems.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
+    this.totalPrice = Math.floor(this.Price)
   }
 
   removeFromCart(item: any): void {
-    this.cartItems = this.cartItems.filter((cartItem) => cartItem.id !== item.id);
-    localStorage.setItem('cart', JSON.stringify(this.cartItems));
-    this.calculateCart();
+    this.cartService.removeFromCart(item.id); // Remove item using service
   }
 
   increaseQuantity(item: any): void {
     const cartItem = this.cartItems.find((cartItem) => cartItem.id === item.id);
     if (cartItem) {
-      cartItem.quantity = (cartItem.quantity || 0) + 1; // Increment quantity safely
+      cartItem.quantity = (cartItem.quantity || 0) + 1;
       localStorage.setItem('cart', JSON.stringify(this.cartItems));
       this.calculateCart(); // Recalculate total items and price
-      console.log(cartItem.quantity, "no error");
+      this.cartService.addToCart(cartItem); // Update cart via service
     }
   }
-  
+
   decreaseQuantity(item: any): void {
     const cartItem = this.cartItems.find((cartItem) => cartItem.id === item.id);
     if (cartItem && cartItem.quantity > 1) {
-      cartItem.quantity--; // Safe decrement (does not go below 1)
-      localStorage.setItem('cart', JSON.stringify(this.cartItems)); // Update localStorage
-      this.calculateCart(); // Recalculate cart total if needed
+      cartItem.quantity--; // Decrement quantity
+      this.cartService.addToCart(cartItem); // Update cart via service
     }
   }
-  
-
-
-
-
-
-
-
 
   proceedToCheckout(): void {
-    alert('Proceeding to checkout!');
+    this.router.navigateByUrl('user')
   }
 }
