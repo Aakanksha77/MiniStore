@@ -8,7 +8,7 @@ import { CustomerFooterComponent } from '../customer-footer/customer-footer.comp
 
 @Component({
   selector: 'app-landing',
-  imports: [RouterModule, CommonModule,CustomerFooterComponent],
+  imports: [RouterModule, CommonModule, CustomerFooterComponent],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.css'
 })
@@ -17,7 +17,7 @@ export class LandingComponent implements OnInit {
   cartService = inject(CartService)
   favService = inject(FavoritesService)
   router = inject(Router);
-  
+
   cartCount: number = 6;
   products: any
   productList: any
@@ -31,54 +31,54 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
     this.getAllCategories()
-   
+
     // this.cartCount = this.cartService.getCartCount();
     this.cartService.cart$.subscribe((cart) => {
       this.cartCount = cart.length; // Update cart count dynamically
     });
-  
+
     const storedData = localStorage.getItem('apiData');
     if (storedData) {
       this.existingData = JSON.parse(storedData);
     }
 
   }
-  
-  
-  onLogoOpen(){
+
+
+  onLogoOpen() {
     this.router.navigateByUrl('pro')
   }
 
-  getAllCategories(){
-    this.service.getAllCategorys().subscribe((result)=>{
+  getAllCategories() {
+    this.service.getAllCategorys().subscribe((result) => {
       this.catergoriesList = result
       console.log(this.catergoriesList);
-      
+
     })
   }
 
-  onCatergoryList(categoryName: string){
-    console.log(categoryName);  
+  onCatergoryList(categoryName: string) {
+    console.log(categoryName);
     this.router.navigateByUrl(`catergories/${categoryName}`);
   }
 
-  onCardOpen(){
+  onCardOpen() {
     this.router.navigateByUrl('cart')
-    
+
   }
 
-  onfavOpen(){
+  onfavOpen() {
     this.router.navigateByUrl('fav')
-  }    
+  }
 
-  
-  onSearch(query: string){
+
+  onSearch(query: string) {
     if (!query.trim()) {
       this.searchResults = []; // Clear results if query is empty
       return;
     }
-  
-    this.searchResults = this.existingData.filter((product: any) => {   
+
+    this.searchResults = this.existingData.filter((product: any) => {
       // Check if `product.name` exists before calling `toLowerCase`
       return product.title && product.title.toLowerCase().includes(query.toLowerCase()) || product.description && product.description.toLowerCase().includes(query.toLowerCase());
     });
@@ -87,23 +87,23 @@ export class LandingComponent implements OnInit {
       const productId = this.searchResults[0].id; // Get the ID of the first matching product
       this.openCard(productId); // Pass the ID to openCard
     }
-  
+
     console.log('Search Results:', this.searchResults);
   }
-  
-  openCard(id:any){
-    this.router.navigateByUrl(`productById/${id}`) 
+
+  openCard(id: any) {
+    this.router.navigateByUrl(`productById/${id}`)
   }
 
-  onUser(){
+  onUser() {
     this.router.navigateByUrl('user')
   }
 
-  onAboutUs(){
+  onAboutUs() {
     this.router.navigateByUrl('About')
   }
 
-  onContact(){
+  onContact() {
     this.router.navigateByUrl('Contact')
   }
 }

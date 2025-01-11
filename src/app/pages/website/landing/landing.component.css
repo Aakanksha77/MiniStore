@@ -1,9 +1,13 @@
 /* Navbar Styling */
 .navbar {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  height: 70px; /* Set the height of the navbar */
-  padding: 0 20px; /* Horizontal padding */
+  background-color: #333;
+  /* Dark background */
+  color: #fff;
+  /* White text */
+  height: 70px;
+  /* Set the height of the navbar */
+  padding: 0 20px;
+  /* Horizontal padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,23 +23,28 @@
   align-items: center;
   width: 100%;
   max-width: 2000px;
-  margin: 0 ;
-  position: relative; /* Important to position search bar correctly */
+  margin: 0;
+  position: relative;
+  /* Important to position search bar correctly */
 }
 
 /* Logo - Align Left */
 .navbar-logo p {
   font-size: 28px;
   font-weight: bold;
-  color: #ff9800; /* Bright orange */
+  color: #ff9800;
+  /* Bright orange */
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding-right: 20px;
-  height: 100%; /* Make sure the logo stays aligned vertically */
+  height: 100%;
+  /* Make sure the logo stays aligned vertically */
   display: flex;
-  align-items: center; /* Vertically center the logo */
-  flex-shrink: 0; /* Ensure the logo doesn't shrink */
+  align-items: center;
+  /* Vertically center the logo */
+  flex-shrink: 0;
+  /* Ensure the logo doesn't shrink */
   cursor: pointer;
 }
 
@@ -44,12 +53,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1; /* Ensure it takes the remaining space */
+  flex-grow: 1;
+  /* Ensure it takes the remaining space */
   position: relative;
-  padding-left: 40px; /* Give space between logo and navbar-center */
-  padding-right: 20px; /* Ensure there's space for the search bar */
+  padding-left: 40px;
+  /* Give space between logo and navbar-center */
+  padding-right: 20px;
+  /* Ensure there's space for the search bar */
 
-  margin-right: 40px; /* Prevents the navbar-actions from overlapping */
+  margin-right: 40px;
+  /* Prevents the navbar-actions from overlapping */
 }
 
 /* Navigation Links */
@@ -57,7 +70,8 @@
   list-style: none;
   display: flex;
   gap: 20px;
-  align-items: center; /* Ensure that all items, including Categories, are vertically aligned */
+  align-items: center;
+  /* Ensure that all items, including Categories, are vertically aligned */
 }
 
 .navbar-links li p {
@@ -71,7 +85,8 @@
 
 .navbar-links li p:hover {
   color: #333;
-  background-color: #ff9800; /* Highlight on hover */
+  background-color: #ff9800;
+  /* Highlight on hover */
   border-radius: 5px;
 }
 
@@ -80,7 +95,8 @@
   position: relative;
   cursor: pointer;
   display: flex;
-  align-items: center; /* Ensure it's vertically aligned with other items */
+  align-items: center;
+  /* Ensure it's vertically aligned with other items */
 }
 
 .dropdown-label {
@@ -131,8 +147,10 @@
   padding: 5px 10px;
   position: relative;
   width: 100%;
-  max-width: 300px; /* Limit the width of the search bar */
-  margin-left: 50px; /* Ensure it has space from other elements */
+  max-width: 300px;
+  /* Limit the width of the search bar */
+  margin-left: 50px;
+  /* Ensure it has space from other elements */
 }
 
 .search-bar input {
@@ -141,7 +159,8 @@
   color: #fff;
   padding: 8px;
   font-size: 14px;
-  width: 100%; /* Take up all available space */
+  width: 100%;
+  /* Take up all available space */
   border-radius: 25px;
   outline: none;
 }
@@ -173,8 +192,10 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  justify-content: flex-end; /* Align icons to the right */
-  margin-left: auto; /* Push actions to the far right */
+  justify-content: flex-end;
+  /* Align icons to the right */
+  margin-left: auto;
+  /* Push actions to the far right */
 }
 
 /* Individual Icon Style */
