@@ -1,0 +1,139 @@
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* About Page Container */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero Section */
+.about-hero {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 10px;
+}
+
+.about-hero h1 {
+  font-size: 2.5em;
+}
+
+.about-hero p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* About Section */
+.about-info {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.about-info h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.about-info p {
+  margin-bottom: 10px;
+}
+
+/* Team Section */
+.about-team {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.about-team h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.team-members {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-member h3 {
+  margin: 10px 0 5px;
+}
+
+.team-member p {
+  color: #777;
+}
+
+/* Call to Action Section */
+.about-cta {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #000000, rgb(79, 78, 78));
+  /* background: linear-gradient(135deg, #6a11cb, #2575fc); */
+  color: white;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.about-cta h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.about-cta p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #0056b3;
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 65px;
+  background-color: #777;
+}
+
+.user-icon i {
+  font-size: 40px;
+}
