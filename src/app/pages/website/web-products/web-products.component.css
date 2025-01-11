@@ -67,10 +67,13 @@ img {
 .product-price {
   font-size: 1rem;
   font-weight: 700;
-  color: #2ecc71;
+  color: #007bff;
   margin: 10px 0;
 }
 
+.product-price b{
+  color: #333;
+}
 /* Buttons */
 .product-actions {
   margin-left: 15px;

@@ -68,12 +68,12 @@ export class WebProductsComponent {
     });
   }
 
-  openCard(id:any){
-    this.router.navigateByUrl(`productById/${id}`) 
+  openCard(id: any) {
+    this.router.navigateByUrl(`productById/${id}`)
   }
 
   // Handle adding product to the cart
-  addToCart(product: any){
+  addToCart(product: any) {
     const result = this.cartService.addToCart(product);
 
     if (result.success) {
@@ -89,7 +89,7 @@ export class WebProductsComponent {
       alert(result.message); // Replace with toast notification for better UX
     }
   }
- 
+
   addTofav(product: any) {
     const result = this.favService.addTofav(product);
     if (result.success) {
