@@ -11,7 +11,13 @@ import { ProductsService } from '../../../service/products.service';
   templateUrl: './category-products.component.html',
   styleUrl: './category-products.component.css'
 })
-export class CategoryProductsComponent implements  OnInit {
+export class CategoryProductsComponent implements OnInit {
+  service = inject(ProductsService);
+  cartService = inject(CartService)
+  favService = inject(FavoritesService)
+  activeRouter = inject(ActivatedRoute);
+  router = inject(Router);
+
   paramValue: any
   productByCategory: any;
   productByCategoryList: any
@@ -22,43 +28,32 @@ export class CategoryProductsComponent implements  OnInit {
   cartCount1: number = 0;
   showPopup: boolean = false;
   showfavPopup: boolean = false;
+
   
-  service = inject(ProductsService);
-  cartService = inject(CartService)
-  favService = inject(FavoritesService)
-  activeRouter = inject(ActivatedRoute);
-  router = inject(Router);
-
-
   ngOnInit() {
     this.activeRouter.paramMap.subscribe(params => {
       this.paramValue = params.get('param'); // 'param' should match the route parameter name in your route configuration
       console.log(this.paramValue);
 
-      
-        this.getProductByCategorysResult(this.paramValue); // Fetch data for the category
-    })  
-  }
-  
-  getProductByCategorysResult(id: any) {
-    this.service.getProductByCategorys(id).subscribe((result) => {
-  console.log(id);
-      this.productByCategory = result;
-      this.productByCategoryList = this.productByCategory.products
-     
-    
-      console.log(this.productByCategoryList);
-    
+      this.getProductByCategorysResult(this.paramValue); // Fetch data for the category
     })
   }
 
-  openCard(id:any){
-    this.router.navigateByUrl(`productById/${id}`) 
+  getProductByCategorysResult(id: any) {
+    this.service.getProductByCategorys(id).subscribe((result) => {
+      console.log(id);
+      this.productByCategory = result;
+      this.productByCategoryList = this.productByCategory.products
+    })
+  }
+
+  openCard(id: any) {
+    this.router.navigateByUrl(`productById/${id}`)
   }
 
 
   // Handle adding product to the cart
-  addToCart(product: any){
+  addToCart(product: any) {
     const result = this.cartService.addToCart(product);
 
     if (result.success) {
@@ -74,7 +69,7 @@ export class CategoryProductsComponent implements  OnInit {
       alert(result.message); // Replace with toast notification for better UX
     }
   }
- 
+
   addTofav(product: any) {
     const result = this.favService.addTofav(product);
     if (result.success) {
