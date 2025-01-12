@@ -1,100 +1,111 @@
 /* Panel */
 .panel {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-top: 20px;
-    height: 764px; /* Fixed height for the entire container */
-    width: 100%; /* Ensures full-width layout */
-    overflow: hidden;
-    box-sizing: border-box; /* Includes padding/border in total width */
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 20px;
+  height: 764px;
+  /* Fixed height for the entire container */
+  width: 100%;
+  /* Ensures full-width layout */
+  overflow: hidden;
+  box-sizing: border-box;
+  /* Includes padding/border in total width */
 }
 
 .left-panel {
-    flex: 1; /* Equal width distribution */
-    /* display: flex;
+  flex: 1;
+  /* Equal width distribution */
+  /* display: flex;
     justify-content: space-between;
     align-items: center; */
-height: 100%;
-     background-color: #e0e0e0; /* Light grey background */
-    padding: 10px;
-    border-right: 1px solid #ccc; /* Visual separation */
-    overflow-y: auto;
-    padding-bottom: 100px;
+  height: 100%;
+  background-color: #e0e0e0;
+  /* Light grey background */
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  /* Visual separation */
+  overflow-y: auto;
+  padding-bottom: 100px;
 }
 
-.title{
+.title {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
   margin-bottom: 15px;
 }
-.title h2{
+
+.title h2 {
   margin-left: 10px;
 }
 
-.right-title{
+.right-title {
   background-color: #fff;
   margin-bottom: 15px;
 }
+
 .right-panel {
-    flex: 1; /* Equal width distribution */
-    /* display: flex;
+  flex: 1;
+  /* Equal width distribution */
+  /* display: flex;
     justify-content: space-between;
     align-items: center; */
-    height: 100%;
-    position: sticky;
-    background-color: #e0e0e0; /* White background for contrast */
-    padding: 10px;
-    overflow-y: auto;
-   
+  height: 100%;
+  position: sticky;
+  background-color: #e0e0e0;
+  /* White background for contrast */
+  padding: 10px;
+  overflow-y: auto;
+
 }
 
-.right-panel button{
+.right-panel button {
   margin: 12px;
 }
+
 button {
-    padding: 10px 25px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 10px 25px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-new{
+.btn-new {
   margin: 10px;
 }
 
 button:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 button:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .btn-new {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .btn-new:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .btn-clear {
-    background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 .btn-clear:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
 /* Card Container */
@@ -108,9 +119,11 @@ button:active {
 }
 
 /* Individual Card */
-.card{
-  width: 250px; /* Make each card fill the left panel */
-  height: 400px; /* Make each card fill the left panel */
+.card {
+  width: 250px;
+  /* Make each card fill the left panel */
+  height: 400px;
+  /* Make each card fill the left panel */
   background-color: white;
   border: 1px solid #cac9ca;
   border-radius: 8px;
@@ -120,13 +133,14 @@ button:active {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-img{
+.card-img {
   background-color: #cac9ca;
 }
-.card-img img{
+
+.card-img img {
   height: 250px;
- margin-left: 40px;
- background-color: transparent;
+  margin-left: 40px;
+  background-color: transparent;
 }
 
 .card:hover {
@@ -163,7 +177,7 @@ button:active {
   /* margin: 10px 0; */
 }
 
-.price b{
+.price b {
   color: #333;
 }
 
@@ -175,6 +189,7 @@ button:active {
   border-radius: 4px;
   cursor: pointer;
   margin-left: 0px;
+  margin-right: 5px;
 }
 
 .edit-product:hover {
@@ -188,7 +203,6 @@ button:active {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 5px;
 }
 
 .delete-product:hover {
@@ -264,20 +278,23 @@ button:active {
 
 /* Styling for Select Dropdown */
 .form-group select {
-  width: 90%; /* Full width of the form group */
+  width: 90%;
+  /* Full width of the form group */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
   background-color: #fff;
-  appearance: none; /* Remove default styles for a clean look */
+  appearance: none;
+  /* Remove default styles for a clean look */
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
 /* Arrow icon styling for select dropdown */
 .form-group select::-ms-expand {
-  display: none; /* Removes the default dropdown icon in IE */
+  display: none;
+  /* Removes the default dropdown icon in IE */
 }
 
 /* Option styling */
@@ -289,7 +306,10 @@ button:active {
 
 /* Focus state styling */
 .form-group select:focus {
-  border-color: #3498db; /* Change border color on focus */
-  outline: none; /* Remove default outline */
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Add shadow on focus */
+  border-color: #3498db;
+  /* Change border color on focus */
+  outline: none;
+  /* Remove default outline */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  /* Add shadow on focus */
 }
