@@ -5,6 +5,11 @@
       <p (click)="onLogoOpen()">MiniStore</p>
     </div>
 
+    <!-- Hamburger Menu for Mobile -->
+<!-- <div class="hamburger-menu" (click)="toggleMenu()">
+  <i class="fa fa-bars"></i>
+</div> -->
+
     <!-- Centered Navigation Links and Search Bar -->
     <div class="navbar-center">
       <ul class="navbar-links">
@@ -17,6 +22,7 @@
           <div class="dropdown-label">Categories</div>
           <ul class="dropdown-list">
             <li *ngFor="let element of catergoriesList" (click)="onCatergoryList(element)">{{element}}</li>
+            <!-- <li><p (click)="onCatergoryList('beauty')">Categories</p></li> -->
           </ul>
         </div>
         <li>
@@ -53,6 +59,9 @@
 
     </div>
   </div>
+
+  
+
 </nav>
 
 

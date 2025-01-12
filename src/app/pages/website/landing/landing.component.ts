@@ -106,4 +106,17 @@ export class LandingComponent implements OnInit {
   onContact() {
     this.router.navigateByUrl('Contact')
   }
+
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    const navbarLinks = document.querySelector('.navbar-links');
+    if (navbarLinks) {
+      navbarLinks.classList.toggle('active', this.menuOpen);
+    }
+  }
+
+  categoriesList: string[] = ['electronics', 'fashion', 'home-decor', 'sports', 'beauty'];  // Example category list
+
 }

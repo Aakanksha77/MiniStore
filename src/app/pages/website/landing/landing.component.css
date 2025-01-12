@@ -1,13 +1,9 @@
-/* Navbar Styling */
+/* Basic Navbar Styling */
 .navbar {
   background-color: #333;
-  /* Dark background */
   color: #fff;
-  /* White text */
-  height: 70px;
-  /* Set the height of the navbar */
+  height: 70px; /* Default height */
   padding: 0 20px;
-  /* Horizontal padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,69 +21,43 @@
   max-width: 2000px;
   margin: 0;
   position: relative;
-  /* Important to position search bar correctly */
+  justify-content: space-between; /* Ensure space between elements */
 }
 
-/* Logo - Align Left */
+/* Logo */
 .navbar-logo p {
   font-size: 28px;
   font-weight: bold;
   color: #ff9800;
-  /* Bright orange */
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
   padding-right: 20px;
   height: 100%;
-  /* Make sure the logo stays aligned vertically */
   display: flex;
   align-items: center;
-  /* Vertically center the logo */
   flex-shrink: 0;
-  /* Ensure the logo doesn't shrink */
   cursor: pointer;
 }
 
-/* Centered Navigation Links and Search Bar */
+/* Navbar Center - Navigation Links */
 .navbar-center {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  /* Ensure it takes the remaining space */
-  position: relative;
   padding-left: 40px;
-  /* Give space between logo and navbar-center */
   padding-right: 20px;
-  /* Ensure there's space for the search bar */
-
   margin-right: 40px;
-  /* Prevents the navbar-actions from overlapping */
+  position: relative;
 }
 
-/* Navigation Links */
+/* Links in the Navbar */
 .navbar-links {
   list-style: none;
   display: flex;
   gap: 20px;
   align-items: center;
-  /* Ensure that all items, including Categories, are vertically aligned */
-}
-
-.navbar-links li p {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 8px 10px;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.navbar-links li p:hover {
-  color: #333;
-  background-color: #ff9800;
-  /* Highlight on hover */
-  border-radius: 5px;
 }
 
 /* Categories Dropdown */
@@ -96,19 +66,12 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  /* Ensure it's vertically aligned with other items */
 }
 
 .dropdown-label {
   color: #fff;
   font-size: 16px;
   padding: 8px 10px;
-  transition: color 0.3s, background-color 0.3s;
-}
-
-.dropdown-label:hover {
-  background-color: #ff9800;
-  border-radius: 5px;
 }
 
 .dropdown-list {
@@ -121,7 +84,6 @@
   padding: 10px 0;
   margin: 0;
   display: none;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-container:hover .dropdown-list {
@@ -130,15 +92,8 @@
 
 .dropdown-list li {
   padding: 8px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.dropdown-list li:hover {
-  background-color: #555;
-}
-
-/* Search Bar */
 .search-bar {
   display: flex;
   align-items: center;
@@ -146,11 +101,8 @@
   border-radius: 25px;
   padding: 5px 10px;
   position: relative;
-  width: 100%;
   max-width: 300px;
-  /* Limit the width of the search bar */
   margin-left: 50px;
-  /* Ensure it has space from other elements */
 }
 
 .search-bar input {
@@ -160,13 +112,8 @@
   padding: 8px;
   font-size: 14px;
   width: 100%;
-  /* Take up all available space */
   border-radius: 25px;
   outline: none;
-}
-
-.search-bar input::placeholder {
-  color: #bbb;
 }
 
 .search-bar button {
@@ -183,33 +130,19 @@
   font-size: 18px;
 }
 
-.search-bar:hover {
-  background-color: #555;
-}
-
-/* Icons for Actions on the Right */
+/* Icons for Actions */
 .navbar-actions {
   display: flex;
   align-items: center;
   gap: 20px;
   justify-content: flex-end;
-  /* Align icons to the right */
-  margin-left: auto;
-  /* Push actions to the far right */
 }
 
-/* Individual Icon Style */
 .icon {
   color: #fff;
   font-size: 20px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.icon:hover {
-  color: #ff9800;
-  transform: scale(1.1);
 }
 
 .cart-count {
@@ -224,40 +157,134 @@
   padding: 2px 6px;
 }
 
-/* Responsive Design */
+/* Responsive Styles for Small Screens */
 @media (max-width: 768px) {
-  .navbar-links {
-    display: none;
+  /* Reduce Navbar Height */
+  .navbar {
+    height: 60px;
+    padding: 0 10px; /* Adjust padding */
   }
 
-  .navbar-actions {
-    gap: 10px;
+  /* Move Logo and Search Bar to Top */
+  .navbar-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .navbar-logo {
+    margin-bottom: 10px;
   }
 
   .navbar-center {
-    flex-grow: 1;
     display: block;
-    position: relative;
+    width: 100%;
+    margin-top: 10px;
   }
 
-  .search-bar {
-    position: absolute;
-    right: 10px;
-    bottom: -35px;
+  /* Links in Navbar: Stack them vertically */
+  .navbar-links {
+    display: block;
+    margin-top: 10px;
     width: 100%;
+  }
+
+  .navbar-links li {
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* Search Bar Below Logo */
+  .search-bar {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    max-width: none; /* Remove width restrictions */
+  }
+
+  .navbar-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  /* Adjust Icon Sizes and Spacing */
+  .icon {
+    font-size: 18px;
+    margin-right: 20px;
+  }
+
+  .cart-count {
+    top: -6px;
+    right: -8px;
+    font-size: 10px;
+    padding: 2px 5px;
   }
 }
 
-@media (max-width: 1024px) {
-  .navbar-links li a {
-    font-size: 14px;
+/* For Very Small Screens (e.g., Mobile Portrait) */
+@media (max-width: 480px) {
+  .navbar {
+    height: 450px; /* Smaller height for mobile portrait */
   }
 
-  .icon {
-    font-size: 18px;
+  .navbar-logo p {
+    font-size: 22px; /* Smaller logo font */
+    margin-bottom: 0px;
   }
 
-  .navbar-logo a {
-    font-size: 24px;
+  .navbar-center { 
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+  }
+
+  .dropdown-label{
+    margin-left: 135px;
+   
+  }
+
+  .dropdown-list{
+    margin-left: 110px;
+    z-index: 1;
+    background-color: #444;
+  }
+
+  
+  .navbar-links{
+    padding: 0px;
+  }
+  .navbar-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* .navbar-links { */
+    /* display: none; Hide navbar links by default on small screens */
+  /* } */
+
+  /* Hamburger Menu for Small Screens */
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger-menu i {
+    font-size: 30px;
+    color: white;
+  }
+
+  /* Show links when Hamburger menu is clicked */
+  .navbar-links.active {
+    display: block;
+  }
+
+  .search-bar{
+    
+    width: 310px;
   }
 }
