@@ -22,5 +22,7 @@ export class ProductsService {
     return this.http.get(Constant.API_END_POINT + Constant.METHODS.GET_PRODUCT_CATEGORY + categoryName)
   }
 
-
+  getProductsById(id: any){
+    return this.http.get(Constant.API_END_POINT +'/'+ id)
+  }
 }
