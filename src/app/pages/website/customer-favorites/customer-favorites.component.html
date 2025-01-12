@@ -7,6 +7,7 @@
     <div class="item-details">
       <p class="item-title">{{ item.title }}</p>
       <p class="item-description">{{ item.description }}</p>
+      <p class="item-price"><b>Price: </b>${{ item.price }}</p>
       <button (click)="removeFromFav(item)" class="remove-btn">Remove</button>
       <button class="add-to-cart" (click)="addToCart(item)">
         <i class="fas fa-shopping-cart"></i> Add to Cart

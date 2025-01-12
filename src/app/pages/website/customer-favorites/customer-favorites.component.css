@@ -39,6 +39,7 @@
   margin-right: 20px;
   border-radius: 8px;
   overflow: hidden;
+  background-color: #cac9ca;
 }
 
 .favorite-item-image {
@@ -46,6 +47,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
+  background-color: transparent;
 }
 
 .item-details {
@@ -63,6 +65,20 @@
   font-size: 14px;
   color: #777;
   margin-bottom: 10px;
+}
+
+.item-price {
+  font-size: 14px;
+  color: #007bff;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.item-price b{
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .remove-btn {
