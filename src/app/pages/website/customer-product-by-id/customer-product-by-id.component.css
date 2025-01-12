@@ -152,18 +152,10 @@ button.favorite:hover {
 .prev-btn,
 .next-btn {
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 20px;
-  border-radius: 50%;
+  display: none;
 }
 
-.prev-btn:hover,
-.next-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
+
 
 
 
