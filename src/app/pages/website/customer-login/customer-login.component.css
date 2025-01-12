@@ -1,6 +1,8 @@
 .parent {
-    /* min-height: 100vh; */
-    margin: 100px 0px 100px 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh;
     background-size: 300% 300%;
 }
 
