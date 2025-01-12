@@ -1,17 +1,22 @@
 <div class="panel">
 
   <div class="left-panel">
+    <div class="title">
+      <h2>Add Product</h2>
     <button class="btn-new" (click)="openSidePanel()">Add</button>
+    </div>
+    
 
     <div class="card-container">
       <div class="card" *ngFor="let element of productList">
-        <img [src]="element.thumbnail" alt=" " class="card-image" />
+        <div class="card-img">
+        <img [src]="element.thumbnail" alt=" " class="card-image" /></div>
         <div class="card-content">
           <h3> {{element.title}} </h3>
           <!-- <p>{{element.description}} </p> -->
-          <p class="price">{{element.price}} | currency </p>
-          <button (click)="onEdit(element)">Edit</button>
-          <button (click)="onDelete(element.id)">Delete</button>
+          <p class="price"><b>Price: </b>${{element.price}}</p>
+          <button (click)="onEdit(element)" class="edit-product">Edit</button>
+          <button (click)="onDelete(element.id)" class="delete-product">Delete</button>
         </div>
       </div>
     </div>
@@ -22,7 +27,11 @@
 
 
   <div class="right-panel" *ngIf="isSidePanelVisible">
-    <button class="btn-close" (click)="closeSidePanel()">Close</button>
+    
+    <div class="right-title">
+      
+      <button class="btn-close" (click)="closeSidePanel()">Close</button>
+    </div>
     <form (ngSubmit)="onSubmit(productForm)" #productForm="ngForm">
       <div class="form-group">
         <label for="title">Title</label>
