@@ -1,13 +1,23 @@
-<!-- <p>layout works!</p> -->
-<ul class="topnav">
-  <li><a class="active">Home</a></li>
-  <li><a>News</a></li>
-  <li><a>Contact</a></li>
-  <li class="right"><a>About</a></li>
-</ul>
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo on the Left -->
+    <div class="navbar-logo">
+      <p >MiniStore</p>
+    </div>
+
+    <!-- Centered Navigation Links and Search Bar -->
+    <div class="navbar-center">
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" placeholder="Search products..." (keydown.enter)="onSearch(searchInput.value)"
+          #searchInput />
+        <button (click)="onSearch(searchInput.value)"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+    
+  </div>
+</nav>
 
 
 
-
-
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
