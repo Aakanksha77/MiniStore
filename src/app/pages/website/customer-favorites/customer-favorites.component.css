@@ -89,6 +89,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  margin-right: 10px;
   transition: background-color 0.3s ease;
 }
 
@@ -106,7 +107,7 @@ button {
 }
 
 button.add-to-cart {
-  margin-left: 10px;
+
   background-color: #007bff;
   /* Blue for "Add to Cart" */
   color: #ffffff;
