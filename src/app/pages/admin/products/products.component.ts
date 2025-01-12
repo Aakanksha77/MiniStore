@@ -11,6 +11,7 @@ import { ProductsService } from '../../../service/products.service';
 })
 export class ProductsComponent implements OnInit {
   isSidePanelVisible: boolean = false;
+  
   service = inject(ProductsService)
 
   ngOnInit() {
@@ -44,57 +45,6 @@ export class ProductsComponent implements OnInit {
 
   productList: any
   products: any
-  getALLProducts1() {
-    this.service.getAllProducts().subscribe(result => {
-      this.products = result
-      this.productList = this.products.products
-      console.log(this.productList);
-
-      // Retrieve existing data from local storage
-      const existingData = JSON.parse(localStorage.getItem('apiData') || '[]');
-
-      // Merge API data with local storage data
-      const mergedData = [...existingData, ...this.productList.filter((apiProduct: any) =>
-        !existingData.some((localProduct: any) => localProduct.id === apiProduct.id)
-      )];
-
-      // Save merged data to local storage
-      localStorage.setItem('apiData', JSON.stringify(mergedData));
-
-      // Update product list in the component
-      this.productList = mergedData;
-
-      console.log('Merged product list:', this.productList);
-    });
-  }
-
-  getALLProducts2() {
-    this.service.getAllProducts().subscribe(result => {
-      this.products = result;
-      this.productList = this.products.products;
-  
-      // Retrieve existing local storage data
-      const existingData = JSON.parse(localStorage.getItem('apiData') || '[]');
-  
-      // Check for additions or updates in API data and merge with local data
-      const mergedData = [...existingData, ...this.productList.filter((apiProduct: any) =>
-        !existingData.some((localProduct: any) => localProduct.id === apiProduct.id)
-      )];
-  
-      // Ensure that local deletions are respected by excluding deleted items
-      const finalData = mergedData.filter((product: any) => 
-        !existingData.some((localProduct: any) => localProduct.id === product.id && localProduct.deleted)
-      );
-  
-      // Save the final data to localStorage
-      localStorage.setItem('apiData', JSON.stringify(finalData));
-  
-      // Update the product list in the component
-      this.productList = finalData;
-  
-      console.log('Final product list after syncing with API:', this.productList);
-    });
-  }
 
   getALLProducts() {
     this.service.getAllProducts().subscribe(result => {
@@ -132,8 +82,6 @@ export class ProductsComponent implements OnInit {
     });
   }
   
-  
-
 
   onSubmit(form: any) {
     // Get existing data from local storage
@@ -183,25 +131,6 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  onDelete1(productId: number): void {
-    if (confirm("Are you sure you want to delete this item?")) {
-      // Retrieve the current data from localStorage
-      const storedData = localStorage.getItem('apiData');
-      let apiData = storedData ? JSON.parse(storedData) : [];
-  
-      // Filter out the product to be deleted
-      const filteredProducts = apiData.filter((product: any) => product.id !== productId);
-  
-      // Save the updated list back to localStorage
-      localStorage.setItem('apiData', JSON.stringify(filteredProducts));
-  
-      // Update the component's product list to reflect the changes
-      this.productList = filteredProducts; // Updating productList variable to sync with UI
-  
-      console.log('Product deleted successfully!');
-    }
-  }
-
 
   onDelete(productId: number): void {
     if (confirm("Are you sure you want to delete this item?")) {
@@ -223,23 +152,11 @@ export class ProductsComponent implements OnInit {
     }
   }
   
-  
-  
-
-
-  // onFileSelect(event: any) {
-  //   const file = event.target.files[0];
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       this.productObj.thumbnail = reader.result as string; // Store Base64 image data
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
+ 
 
   openSidePanel() {
     this.isSidePanelVisible = true
+   
   }
 
   closeSidePanel() {
@@ -248,5 +165,3 @@ export class ProductsComponent implements OnInit {
 
 
 }
-
-// https://demo-58.woovinapro.com/product/leather-key-chain-wallet-iness-casual-wool-trench-coats/

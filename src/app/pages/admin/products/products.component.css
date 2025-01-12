@@ -5,26 +5,17 @@
   gap: 15px;
   margin-top: 20px;
   height: 764px;
-  /* Fixed height for the entire container */
   width: 100%;
-  /* Ensures full-width layout */
   overflow: hidden;
   box-sizing: border-box;
-  /* Includes padding/border in total width */
 }
 
 .left-panel {
   flex: 1;
-  /* Equal width distribution */
-  /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
   height: 100%;
   background-color: #e0e0e0;
-  /* Light grey background */
   padding: 10px;
   border-right: 1px solid #ccc;
-  /* Visual separation */
   overflow-y: auto;
   padding-bottom: 100px;
 }
@@ -47,17 +38,11 @@
 
 .right-panel {
   flex: 1;
-  /* Equal width distribution */
-  /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
   height: 100%;
   position: sticky;
   background-color: #e0e0e0;
-  /* White background for contrast */
   padding: 10px;
   overflow-y: auto;
-
 }
 
 .right-panel button {
