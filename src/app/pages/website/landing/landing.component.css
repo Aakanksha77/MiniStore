@@ -40,6 +40,17 @@
   cursor: pointer;
 }
 
+.hamburger-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding-left: 40px;
+  padding-right: 20px;
+  margin-right: 40px;
+  position: relative;
+}
+
 /* Navbar Center - Navigation Links */
 .navbar-center {
   display: flex;
@@ -51,6 +62,8 @@
   margin-right: 40px;
   position: relative;
 }
+
+
 
 /* Links in the Navbar */
 .navbar-links {
@@ -75,6 +88,14 @@
 }
 
 .dropdown-list {
+  max-height: 400px; /* Set maximum height for the dropdown list */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scrolling */
+  background-color: #444;
+  z-index: 2;
+  padding: 10px 0; /* Optional: Adjust padding for better spacing */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
   position: absolute;
   top: 100%;
   left: 0;
@@ -84,6 +105,20 @@
   padding: 10px 0;
   margin: 0;
   display: none;
+}
+
+/* Optional scrollbar styling (modern browsers) */
+.dropdown-list::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar thumb color */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}
+
+.dropdown-list::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Thumb color on hover */
 }
 
 .dropdown-container:hover .dropdown-list {
@@ -223,10 +258,22 @@
   }
 }
 
+
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-menu i {
+  font-size: 30px;
+  color: white;
+}
+
 /* For Very Small Screens (e.g., Mobile Portrait) */
 @media (max-width: 480px) {
   .navbar {
-    height: 450px; /* Smaller height for mobile portrait */
+    height: auto; /* Smaller height for mobile portrait */
   }
 
   .navbar-logo p {
@@ -240,16 +287,44 @@
     padding-right: 0px;
     margin-top: 0px;
     margin-right: 0px;
+    display: none;
+  }
+
+  .navbar-center.active {
+    display: flex; /* Show when active */
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+  }
+  
+  .hamburger-menu {
+    display: block;
+  }
+
+  .navbar-actions {
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-bar {
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 90%;
   }
 
   .dropdown-label{
     margin-left: 135px;
-   
+    width: auto;
+    overflow-y: auto; /* Enable vertical scrolling */
   }
 
   .dropdown-list{
     margin-left: 110px;
-    z-index: 1;
+    z-index: 2;
     background-color: #444;
   }
 
@@ -263,28 +338,7 @@
     width: 100%;
   }
 
-  /* .navbar-links { */
-    /* display: none; Hide navbar links by default on small screens */
-  /* } */
+  
 
-  /* Hamburger Menu for Small Screens */
-  .hamburger-menu {
-    display: block;
-    cursor: pointer;
-  }
-
-  .hamburger-menu i {
-    font-size: 30px;
-    color: white;
-  }
-
-  /* Show links when Hamburger menu is clicked */
-  .navbar-links.active {
-    display: block;
-  }
-
-  .search-bar{
-    
-    width: 310px;
-  }
 }
+
