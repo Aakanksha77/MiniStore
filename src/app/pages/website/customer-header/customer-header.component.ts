@@ -51,4 +51,6 @@ export class CustomerHeaderComponent implements OnInit {
     console.log(categoryName);
     this.router.navigateByUrl(`catergories/${categoryName}`);
   }
+
+  
 }
