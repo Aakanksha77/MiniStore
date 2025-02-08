@@ -23,45 +23,14 @@ Here's the final **README.md** with all the changes integrated in a **clear and 
 - 🛠️ Manage products  
 
 ## **📂 Project Structure**  
-```
-aakanksha77-ministore/         # Root folder
-├── README.md                  # Project documentation
-├── angular.json               # Angular CLI configuration
-├── package.json               # Project dependencies and scripts
-├── tsconfig.json              # TypeScript configuration
-├── public/                    # Public assets (if any)
-└── src/                       # Source code
-    ├── _redirects             # Netlify routing support
-    ├── index.html             # Main HTML file
-    ├── main.ts                # Application entry point
-    ├── styles.css             # Global styles
-    └── app/                   # Main application folder
-        ├── app.component.ts   # Root Angular component
-        ├── app.routes.ts      # Routing configuration
-        ├── app.config.ts      # App-level configurations
-        ├── pages/             # Page components
-        │   ├── admin/         # Admin panel pages
-        │   │   ├── layout/    # Admin layout component
-        │   │   ├── login/     # Admin login component
-        │   │   └── products/  # Product management
-        │   └── website/       # Customer-facing website
-        │       ├── landing/   # Homepage
-        │       ├── category-products/ # Category-based product listings
-        │       ├── contact/   # Contact page
-        │       ├── customer-cart/ # Shopping cart page
-        │       ├── customer-favorites/ # Favorite products
-        │       ├── customer-header/ # Header for website
-        │       ├── customer-footer/ # Footer for website
-        │       ├── customer-login/ # Customer authentication
-        │       ├── customer-product-by-id/ # Single product details
-        │       └── web-products/ # General product listings
-        ├── service/             # Business logic & API services
-        │   ├── products.service.ts  # Product API service
-        │   ├── cart/           # Shopping cart service
-        │   ├── favorites/      # Favorite products service
-        │   └── constant/       # Constants & config variables
-        └── assets/             # Static assets (images, icons, etc.)
-```
+
+- `src/app/pages/admin/` → Admin panel (login, product management)  
+- `src/app/pages/website/` → Customer-facing site (home, cart, products)  
+- `src/app/service/` → API services (products, cart, favorites)  
+- `src/assets/` → Static assets (images, icons, etc.)  
+- `src/styles.css` → Global styles  
+
+
 
 ## **⚡ Installation & Setup**  
 
