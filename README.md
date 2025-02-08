@@ -3,6 +3,9 @@
 ## **📌 Overview**  
 **MiniStore** is a simple and lightweight **e-commerce platform** built with **Angular**. It includes a **customer-facing store** and an **admin panel** for product management.  
 
+## 🌍 Live Demo  
+🚀 Check out the live version here: [MiniStore Demo](https://ministores-ecommers.netlify.app/)
+
 ## **🚀 Features**  
 
 ### **🔹 Customer Website**  
