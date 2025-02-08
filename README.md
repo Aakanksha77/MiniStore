@@ -1,7 +1,3 @@
-Here's the final **README.md** with all the changes integrated in a **clear and structured** way:  
-
----
-
 # **MiniStore - Angular E-commerce Platform**  
 
 ## **📌 Overview**  
